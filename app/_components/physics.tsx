@@ -21,11 +21,28 @@ export const Physics = () => {
 
     const engine = Engine.create()
 
-    const boxA = Bodies.rectangle(450, 200, 80, 80)
-    const boxB = Bodies.rectangle(400, 50, 80, 80)
+    const techList = ["Next.js", "Typescript"]
+    let imgMap: { [name: string]: HTMLImageElement } = {}
+    techList.forEach((name) => {
+      const fileName = name
+        .split(/[^a-zA-Z]+/)
+        .join("-")
+        .toLowerCase()
+      const url = `./_techIcons/${fileName}.svg`
+      const img = new Image()
+      img.src = url
+      if (!imgMap[name]) imgMap[name] = img
+    })
+    const iconList = techList.map((name, index) => {
+      const [width, height] = [80, 80]
+      const body = Bodies.rectangle(400, 200 - height * index, width, height)
+      body.label = name
+      return body
+    })
+
     const ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true })
 
-    Composite.add(engine.world, [boxA, boxB, ground])
+    Composite.add(engine.world, [...iconList, ground])
 
     const render = () => {
       Engine.update(engine)
@@ -33,7 +50,6 @@ export const Physics = () => {
       //console.log(bodies)
       window.requestAnimationFrame(render)
 
-      ctx.fillStyle = "#fff"
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
       ctx.beginPath()
@@ -41,7 +57,10 @@ export const Physics = () => {
       bodies.forEach((body) => {
         const vertices = body.vertices
         const { x, y } = body.position
-        ctx.drawImage(img, x - 40, y - 40, 80, 80)
+
+        if (imgMap[body.label]) {
+          ctx.drawImage(imgMap[body.label], x - 40, y - 40, 80, 80)
+        }
 
         ctx.moveTo(vertices[0].x, vertices[0].y)
 
