@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Aura } from "./_components/aura"
+import { Footer } from "./footer"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Aura />
         <div className="max-w-[1620px] w-full">{children}</div>
       </body>
+      <Footer />
     </html>
   )
 }

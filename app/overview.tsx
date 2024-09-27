@@ -1,4 +1,7 @@
-import { Fragment } from "react"
+"use client"
+
+import { motion, useInView } from "framer-motion"
+import { Fragment, useRef } from "react"
 import { Bento } from "./_components/bento"
 import { IconText } from "./_components/iconText"
 import { RoundedImg } from "./_components/roundedImg"
@@ -14,6 +17,8 @@ export const Overview = ({
   order: string
 }) => {
   const { src, alt, title, type, url, urlName, feature, tech } = data
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
 
   const techIcons = tech.map((name, index) => {
     return (
@@ -26,12 +31,17 @@ export const Overview = ({
   })
 
   return (
-    <div>
-      <div className="grid place-items-center pt-14">
+    <motion.div
+      ref={ref}
+      initial={{ x: "10%", opacity: 0 }}
+      animate={isInView && { x: 0, opacity: 1 }}
+      transition={{ duration: 0.3, type: "tween", ease: "easeOut" }}
+    >
+      <div className="grid place-items-center pt-12">
         <div className="max-w-5xl">
           <RoundedImg src={src} alt={alt} />
           <h1 className="text-4xl pt-4">{`${order}. ${title}`}</h1>
-          <div className="grid grid-cols-4 pt-4 gap-x-4">
+          <div className="grid grid-cols-4 pt-5 gap-x-4">
             <Bento>
               <SmallText>Type</SmallText>
               <p>{type}</p>
@@ -52,6 +62,6 @@ export const Overview = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
