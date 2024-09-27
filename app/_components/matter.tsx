@@ -52,6 +52,11 @@ export const MatterScene = () => {
         "figma",
       ]
 
+    const dpr = window.devicePixelRatio || 1
+    canvas.width = canvasWidth * dpr
+    canvas.height = canvasHeight * dpr
+    ctx.scale(dpr, dpr)
+
     const imgMap: {
       [name: string]: { src: HTMLImageElement; w: number; h: number }
     } = {}
@@ -62,7 +67,7 @@ export const MatterScene = () => {
         .toLowerCase()
       if (!imgMap[name]) {
         imgMap[name] = {
-          src: createImg(`./techIcons/${fileName}.svg`),
+          src: createImg(`/techIcons/${fileName}.svg`),
           w: iconSize * textureScale,
           h: iconSize * textureScale,
         }
@@ -96,14 +101,14 @@ export const MatterScene = () => {
       }
     )
     imgMap.ball = {
-      src: createImg("./portrait.png"),
+      src: createImg("/portrait.png"),
       w: 2 * iconSize * 0.9,
       h: 2 * iconSize * 0.9,
     }
 
     const ground = Bodies.rectangle(
-      canvas.width / 2,
-      canvas.height,
+      canvasWidth / 2,
+      canvasHeight,
       canvas.width,
       1,
       {
@@ -112,14 +117,14 @@ export const MatterScene = () => {
       }
     )
     const nameBox = Bodies.rectangle(
-      canvas.width / 2 - 238,
-      canvas.height - 46,
+      canvasWidth / 2 - 238,
+      canvasHeight - 46,
       522,
       93,
       { label: "nameBox", isStatic: true }
     )
     imgMap.nameBox = {
-      src: createImg("./ZONGZE.svg"),
+      src: createImg("/ZONGZE.svg"),
       w: 522,
       h: 93,
     }
@@ -196,7 +201,7 @@ export const MatterScene = () => {
   return (
     <div className="w-full">
       <div className="flex justify-center">
-        <canvas ref={canvasRef} width={2000} height={600} />
+        <canvas ref={canvasRef} style={{ width: 2000, height: 600 }} />
       </div>
     </div>
   )
