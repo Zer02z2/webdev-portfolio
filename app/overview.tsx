@@ -35,12 +35,12 @@ export const Overview = ({
       ref={ref}
       initial={{ x: "10%", opacity: 0 }}
       animate={isInView && { x: 0, opacity: 1 }}
-      transition={{ duration: 0.3, type: "tween", ease: "easeOut" }}
+      transition={{ duration: 0.4, type: "tween", ease: "easeOut" }}
     >
-      <div className="grid place-items-center pt-12">
+      <div className="grid place-items-center">
         <div className="max-w-5xl">
+          <h1 className="text-4xl pb-4">{`${order}. ${title}`}</h1>
           <RoundedImg src={src} alt={alt} />
-          <h1 className="text-4xl pt-4">{`${order}. ${title}`}</h1>
           <div className="grid grid-cols-4 pt-5 gap-x-4">
             <Bento>
               <SmallText>Type</SmallText>

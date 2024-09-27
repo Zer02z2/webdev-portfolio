@@ -9,7 +9,7 @@ export const RoundedImg = ({
 }) => {
   return (
     <div className="overflow-hidden rounded-lg">
-      <Image src={src} alt={alt} width="2560" height="1440" />
+      <Image src={src} alt={alt} width="2560" height="1440" quality={100} />
     </div>
   )
 }

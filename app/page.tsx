@@ -1,6 +1,6 @@
 import { Landing } from "./landing"
 import { Overview } from "./overview"
-import { synapticMeta } from "./projectMeta"
+import { aiPlaygroundMeta, synapticMeta } from "./projectMeta"
 
 export default function Home() {
   return (
@@ -10,7 +10,11 @@ export default function Home() {
       <div className="grid place-items-center">
         <h1 className="text-6xl">PROJECTS</h1>
       </div>
-      <Overview data={synapticMeta} order="1" />
+      <div className="pt-12"></div>
+      <div className="grid gap-y-20">
+        <Overview data={synapticMeta} order="1" />
+        <Overview data={aiPlaygroundMeta} order="2" />
+      </div>
     </div>
   )
 }
