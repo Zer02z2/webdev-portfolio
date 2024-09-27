@@ -5,10 +5,6 @@ import { useEffect, useRef, useState } from "react"
 
 export const MatterScene = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [canvasSize, setCanvasSize] = useState({
-    x: window.innerWidth,
-    y: 600,
-  })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -16,9 +12,9 @@ export const MatterScene = () => {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    window.addEventListener("resize", () => {
-      setCanvasSize({ x: window.innerWidth, y: canvasSize.y })
-    })
+    // window.addEventListener("resize", () => {
+    //   updateCanvas()
+    // })
 
     const Engine = Matter.Engine,
       Bodies = Matter.Bodies,
@@ -26,7 +22,9 @@ export const MatterScene = () => {
       Constraint = Matter.Constraint
     const engine = Engine.create()
 
-    const iconSize = 60,
+    const canvasWidth = 2000,
+      canvasHeight = 600,
+      iconSize = 60,
       textureScale = 0.7,
       rows = 5,
       techList = [
@@ -67,8 +65,8 @@ export const MatterScene = () => {
     })
     const iconList = techList.map((name, index) => {
       const body = Bodies.rectangle(
-        canvasSize.x / 2 + 200 + iconSize * Math.floor(index / rows),
-        canvasSize.y - iconSize * (1 + (index % rows) - 0.5),
+        canvasWidth / 2 + 200 + iconSize * Math.floor(index / rows),
+        canvasHeight - iconSize * (1 + (index % rows) - 0.5),
         iconSize,
         iconSize,
         { chamfer: { radius: 10 }, restitution: 0, frictionStatic: 10 }
@@ -88,8 +86,8 @@ export const MatterScene = () => {
     )
 
     const ball = Bodies.circle(
-      canvasSize.x / 2 - 500,
-      canvasSize.y - 8 * iconSize,
+      canvasWidth / 2 - 500,
+      canvasHeight - 8 * iconSize,
       iconSize,
       { density: 0.04, frictionAir: 0.005 }
     )
@@ -98,7 +96,7 @@ export const MatterScene = () => {
     Composite.add(
       engine.world,
       Constraint.create({
-        pointA: { x: canvasSize.x / 2, y: -200 },
+        pointA: { x: canvasWidth / 2, y: -200 },
         bodyB: ball,
       })
     )
@@ -149,6 +147,19 @@ export const MatterScene = () => {
     }
     render()
 
+    // const updateCanvas = () => {
+    //   const previousWidth = canvasWidth
+    //   const currentWidth = window.innerWidth
+    //   setCanvasSize({ x: window.innerWidth, y: canvasHeight })
+    //   const factor = currentWidth / previousWidth
+    //   const bodies = Composite.allBodies(engine.world)
+    //   bodies.forEach((body) => {
+    //     body.vertices.forEach((vertex) => {
+    //       vertex.x -= 1
+    //     })
+    //   })
+    // }
+
     return () => {
       Composite.clear(engine.world, true)
       Engine.clear(engine)
@@ -157,8 +168,8 @@ export const MatterScene = () => {
 
   return (
     <div className="w-full">
-      <div className="absolute left-0">
-        <canvas ref={canvasRef} width={canvasSize.x} height={canvasSize.y} />
+      <div className="flex justify-center">
+        <canvas ref={canvasRef} width={2000} height={600} />
       </div>
     </div>
   )
