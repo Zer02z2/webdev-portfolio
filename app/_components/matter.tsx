@@ -6,6 +6,12 @@ import { useEffect, useRef } from "react"
 export const MatterScene = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
+  const createImg = (src: string): HTMLImageElement => {
+    const img = new Image()
+    img.src = src
+    return img
+  }
+
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
@@ -50,12 +56,9 @@ export const MatterScene = () => {
         .split(/[^a-zA-Z]+/)
         .join("-")
         .toLowerCase()
-      const url = `./_techIcons/${fileName}.svg`
-      const img = new Image()
-      img.src = url
       if (!imgMap[name]) {
         imgMap[name] = {
-          src: img,
+          src: createImg(`./_techIcons/${fileName}.svg`),
           w: iconSize * textureScale,
           h: iconSize * textureScale,
         }
@@ -88,10 +91,8 @@ export const MatterScene = () => {
         force: { x: 10, y: 10 },
       }
     )
-    const img = new Image()
-    img.src = "./portrait.png"
     imgMap.ball = {
-      src: img,
+      src: createImg("./portrait.png"),
       w: 2 * iconSize * 0.9,
       h: 2 * iconSize * 0.9,
     }
@@ -109,10 +110,15 @@ export const MatterScene = () => {
     const nameBox = Bodies.rectangle(
       canvas.width / 2 - 238,
       canvas.height - 46,
-      530,
-      92,
+      522,
+      93,
       { label: "nameBox", isStatic: true }
     )
+    imgMap.nameBox = {
+      src: createImg("./ZONGZE.svg"),
+      w: 522,
+      h: 93,
+    }
 
     Composite.add(engine.world, [...iconList, ground, ball, nameBox])
     Composite.add(
@@ -127,8 +133,8 @@ export const MatterScene = () => {
       Engine.update(engine)
       const bodies = Composite.allBodies(engine.world)
       const constraints = Composite.allConstraints(engine.world)
-      //console.log(constraints[0])
-      //window.requestAnimationFrame(render)
+
+      window.requestAnimationFrame(render)
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -141,35 +147,28 @@ export const MatterScene = () => {
         ctx.stroke()
       })
 
-      const fontInter = getComputedStyle(
-        document.documentElement
-      ).getPropertyValue("var(--font-inter)")
-      console.log(fontInter)
-      ctx.font = "128px Helvetica"
-      ctx.fillStyle = "#1E1E1E"
-      ctx.fillText("ZONGZE", canvas.width / 2 - 500, canvas.height)
-
       ctx.beginPath()
 
       bodies.forEach((body) => {
-        if (body.label === "nameBox") return
-        const vertices = body.vertices
+        if (body.label !== "nameBox") {
+          const vertices = body.vertices
 
-        ctx.moveTo(vertices[0].x, vertices[0].y)
-        ctx.beginPath()
+          ctx.moveTo(vertices[0].x, vertices[0].y)
+          ctx.beginPath()
 
-        vertices.forEach((vertex, index) => {
-          if (index === 0) return
-          ctx.lineTo(vertex.x, vertex.y)
-        })
+          vertices.forEach((vertex, index) => {
+            if (index === 0) return
+            ctx.lineTo(vertex.x, vertex.y)
+          })
 
-        ctx.lineTo(vertices[0].x, vertices[0].y)
-        ctx.closePath()
+          ctx.lineTo(vertices[0].x, vertices[0].y)
+          ctx.closePath()
 
-        ctx.fillStyle = "#E2E2E2"
-        ctx.fill()
-        ctx.strokeStyle = body.label == "ground" ? "#909090" : "#1E1E1E"
-        ctx.stroke()
+          ctx.fillStyle = "#E2E2E2"
+          ctx.fill()
+          ctx.strokeStyle = body.label == "ground" ? "#909090" : "#1E1E1E"
+          ctx.stroke()
+        }
 
         if (imgMap[body.label]) {
           const { x, y } = body.position
