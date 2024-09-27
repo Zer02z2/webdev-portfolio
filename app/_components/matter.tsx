@@ -46,6 +46,10 @@ export const MatterScene = () => {
         "vite",
         "nodejs",
         "firebase",
+        "gsap",
+        "mysql",
+        "wordpress",
+        "figma",
       ]
 
     const imgMap: {
@@ -58,7 +62,7 @@ export const MatterScene = () => {
         .toLowerCase()
       if (!imgMap[name]) {
         imgMap[name] = {
-          src: createImg(`./_techIcons/${fileName}.svg`),
+          src: createImg(`./techIcons/${fileName}.svg`),
           w: iconSize * textureScale,
           h: iconSize * textureScale,
         }

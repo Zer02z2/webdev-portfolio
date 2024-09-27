@@ -4,6 +4,8 @@
 
 :root {
   --background: #e2e2e2;
+  --midnight: #1e1e1e;
+  --silver: #656565;
 }
 
 .html {
@@ -14,4 +16,20 @@ body {
   background-color: var(--background);
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+a::after {
+  --size: 0.6rem;
+  content: "";
+  display: inline-block;
+  background-image: url("../public/icons/up-right-arrow.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-left: 0.3rem;
+  width: var(--size);
+  height: var(--size);
+}
+
+a:hover {
+  text-decoration: underline;
 }
