@@ -1,7 +1,7 @@
 "use client"
 
 import Matter from "matter-js"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 export const MatterScene = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -11,10 +11,6 @@ export const MatterScene = () => {
     if (!canvas) return
     const ctx = canvas.getContext("2d")
     if (!ctx) return
-
-    // window.addEventListener("resize", () => {
-    //   updateCanvas()
-    // })
 
     const Engine = Matter.Engine,
       Bodies = Matter.Bodies,
@@ -42,6 +38,8 @@ export const MatterScene = () => {
         "node-red",
         "php",
         "vite",
+        "nodejs",
+        "firebase",
       ]
 
     const imgMap: {
@@ -65,15 +63,38 @@ export const MatterScene = () => {
     })
     const iconList = techList.map((name, index) => {
       const body = Bodies.rectangle(
-        canvasWidth / 2 + 200 + iconSize * Math.floor(index / rows),
+        canvasWidth / 2 + 100 + iconSize * Math.floor(index / rows),
         canvasHeight - iconSize * (1 + (index % rows) - 0.5),
         iconSize,
         iconSize,
-        { chamfer: { radius: 10 }, restitution: 0, frictionStatic: 10 }
+        {
+          label: name,
+          chamfer: { radius: 10 },
+          restitution: 0,
+          frictionStatic: 10,
+        }
       )
-      body.label = name
       return body
     })
+
+    const ball = Bodies.circle(
+      canvasWidth / 2 - 800,
+      canvasHeight - 8 * iconSize,
+      iconSize,
+      {
+        label: "ball",
+        density: 0.04,
+        frictionAir: 0.005,
+        force: { x: 10, y: 10 },
+      }
+    )
+    const img = new Image()
+    img.src = "./portrait.png"
+    imgMap.ball = {
+      src: img,
+      w: 2 * iconSize * 0.9,
+      h: 2 * iconSize * 0.9,
+    }
 
     const ground = Bodies.rectangle(
       canvas.width / 2,
@@ -81,22 +102,23 @@ export const MatterScene = () => {
       canvas.width,
       1,
       {
+        label: "ground",
         isStatic: true,
       }
     )
-
-    const ball = Bodies.circle(
-      canvasWidth / 2 - 500,
-      canvasHeight - 8 * iconSize,
-      iconSize,
-      { density: 0.04, frictionAir: 0.005 }
+    const nameBox = Bodies.rectangle(
+      canvas.width / 2 - 238,
+      canvas.height - 46,
+      530,
+      92,
+      { label: "nameBox", isStatic: true }
     )
 
-    Composite.add(engine.world, [...iconList, ground, ball])
+    Composite.add(engine.world, [...iconList, ground, ball, nameBox])
     Composite.add(
       engine.world,
       Constraint.create({
-        pointA: { x: canvasWidth / 2, y: -200 },
+        pointA: { x: canvasWidth / 2 - 300, y: -200 },
         bodyB: ball,
       })
     )
@@ -104,14 +126,33 @@ export const MatterScene = () => {
     const render = () => {
       Engine.update(engine)
       const bodies = Composite.allBodies(engine.world)
-      //console.log(bodies)
-      window.requestAnimationFrame(render)
+      const constraints = Composite.allConstraints(engine.world)
+      //console.log(constraints[0])
+      //window.requestAnimationFrame(render)
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      ctx.lineWidth = 1
+      constraints.forEach((constraint) => {
+        if (!constraint.bodyB) return
+        ctx.moveTo(constraint.pointA.x, constraint.pointA.y)
+        ctx.lineTo(constraint.bodyB.position.x, constraint.bodyB.position.y)
+        ctx.strokeStyle = "#909090"
+        ctx.stroke()
+      })
+
+      const fontInter = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("var(--font-inter)")
+      console.log(fontInter)
+      ctx.font = "128px Helvetica"
+      ctx.fillStyle = "#1E1E1E"
+      ctx.fillText("ZONGZE", canvas.width / 2 - 500, canvas.height)
 
       ctx.beginPath()
 
       bodies.forEach((body) => {
+        if (body.label === "nameBox") return
         const vertices = body.vertices
 
         ctx.moveTo(vertices[0].x, vertices[0].y)
@@ -127,11 +168,7 @@ export const MatterScene = () => {
 
         ctx.fillStyle = "#E2E2E2"
         ctx.fill()
-        ctx.lineWidth = 1
-        ctx.strokeStyle =
-          body.label == "ground" || body.label == "string"
-            ? "#909090"
-            : "#1E1E1E"
+        ctx.strokeStyle = body.label == "ground" ? "#909090" : "#1E1E1E"
         ctx.stroke()
 
         if (imgMap[body.label]) {
@@ -146,19 +183,6 @@ export const MatterScene = () => {
       })
     }
     render()
-
-    // const updateCanvas = () => {
-    //   const previousWidth = canvasWidth
-    //   const currentWidth = window.innerWidth
-    //   setCanvasSize({ x: window.innerWidth, y: canvasHeight })
-    //   const factor = currentWidth / previousWidth
-    //   const bodies = Composite.allBodies(engine.world)
-    //   bodies.forEach((body) => {
-    //     body.vertices.forEach((vertex) => {
-    //       vertex.x -= 1
-    //     })
-    //   })
-    // }
 
     return () => {
       Composite.clear(engine.world, true)
