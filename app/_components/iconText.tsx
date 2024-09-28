@@ -18,7 +18,7 @@ export const IconText = ({
   const content = () => {
     if (url && linkType === "external") {
       return (
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" className="external-link">
           {text}
         </a>
       )

@@ -150,6 +150,7 @@ export const MatterScene = () => {
       ctx.lineWidth = 1
       constraints.forEach((constraint) => {
         if (!constraint.bodyB) return
+        if (constraint.label === "Mouse Constraint") return
         ctx.moveTo(constraint.pointA.x, constraint.pointA.y)
         ctx.lineTo(constraint.bodyB.position.x, constraint.bodyB.position.y)
         ctx.strokeStyle = "#909090"

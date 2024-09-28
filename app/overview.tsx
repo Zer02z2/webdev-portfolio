@@ -33,7 +33,7 @@ export const Overview = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ x: "10%", opacity: 0 }}
+      initial={{ x: 50, opacity: 0 }}
       animate={isInView && { x: 0, opacity: 1 }}
       transition={{ duration: 0.4, type: "tween", ease: "easeOut" }}
     >
@@ -44,7 +44,7 @@ export const Overview = ({
           <div className="pt-4"></div>
           <div className="grid grid-cols-4 gap-x-4">
             <div className="col-span-3">
-              <Bento border={true}>
+              <Bento border={true} dark={false}>
                 <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
                   <div>
                     <SmallText>Type</SmallText>

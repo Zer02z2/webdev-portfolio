@@ -3,6 +3,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Aura } from "./_components/aura"
 import { Footer } from "./footer"
+import { Header } from "./header"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable}`}>
         <Aura />
+        <Header />
         <div className="w-full px-8 flex justify-center">
           <div className="max-w-[1620px] w-full">{children}</div>
         </div>

@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-a::after {
+.external-link::after {
   --size: 0.6rem;
   content: "";
   display: inline-block;
