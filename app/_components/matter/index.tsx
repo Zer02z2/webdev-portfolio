@@ -4,18 +4,19 @@ import Matter from "matter-js"
 import { useEffect, useRef, useState } from "react"
 import { render } from "./render"
 import { largeCanvas } from "./largeCanvas"
-
-export interface ImgMapProps {
-  [name: string]: { src: HTMLImageElement; w: number; h: number }
-}
+import { smallCanvas } from "./smallCanvas"
 
 export const MatterScene = () => {
+  const largeCanvasSize = { x: 2000, y: 600 }
+  const smallCanvasSize = { x: 1200, y: 400 }
+
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const smCanvasRef = useRef<HTMLCanvasElement>(null)
-
   const [isSmall, setIsSmall] = useState<boolean | null>(null)
 
   useEffect(() => {
+    if (window.innerWidth > 1024) setIsSmall(false)
+    else setIsSmall(true)
     window.addEventListener("resize", () => {
       if (window.innerWidth > 1024) setIsSmall(false)
       else setIsSmall(true)
@@ -23,7 +24,7 @@ export const MatterScene = () => {
   }, [])
 
   useEffect(() => {
-    const canvas = canvasRef.current
+    const canvas = isSmall ? smCanvasRef.current : canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext("2d")
     if (!ctx) return
@@ -59,21 +60,39 @@ export const MatterScene = () => {
         "figma",
       ]
 
-    const param = largeCanvas({
-      canvas: canvas,
-      ctx: ctx,
-      techList: techList,
-      rows: rows,
-      textureScale: textureScale,
-      Bodies: Bodies,
-      Composite: Composite,
-      Constraint: Constraint,
-      Engine: Engine,
-      engine: engine,
-    })
-
-    render(param)
-
+    if (isSmall) {
+      const param = smallCanvas({
+        canvas: canvas,
+        ctx: ctx,
+        canvasWidth: smallCanvasSize.x,
+        canvasHeight: smallCanvasSize.y,
+        techList: techList,
+        rows: rows,
+        textureScale: textureScale,
+        Bodies: Bodies,
+        Composite: Composite,
+        Constraint: Constraint,
+        Engine: Engine,
+        engine: engine,
+      })
+      render(param)
+    } else {
+      const param = largeCanvas({
+        canvas: canvas,
+        ctx: ctx,
+        canvasWidth: largeCanvasSize.x,
+        canvasHeight: largeCanvasSize.y,
+        techList: techList,
+        rows: rows,
+        textureScale: textureScale,
+        Bodies: Bodies,
+        Composite: Composite,
+        Constraint: Constraint,
+        Engine: Engine,
+        engine: engine,
+      })
+      render(param)
+    }
     return () => {
       Composite.clear(engine.world, true)
       Engine.clear(engine)
@@ -81,18 +100,33 @@ export const MatterScene = () => {
   }, [isSmall])
 
   return (
-    <div className="w-full relative h-[600px]">
-      <div
-        className="w-screen absolute flex justify-center overflow-hidden"
-        style={{ left: "calc(50% - 50vw)" }}
-      >
-        {!isSmall && (
-          <canvas ref={canvasRef} style={{ width: 2000, height: 600 }} />
-        )}
-        {isSmall && (
-          <canvas ref={smCanvasRef} style={{ width: 1200, height: 400 }} />
-        )}
-      </div>
+    <div>
+      {!isSmall && (
+        <div className="w-full relative h-[600px]">
+          <div
+            className="w-screen absolute flex justify-center overflow-hidden"
+            style={{ left: "calc(50% - 50vw)" }}
+          >
+            <canvas
+              ref={canvasRef}
+              style={{ width: largeCanvasSize.x, height: largeCanvasSize.y }}
+            />
+          </div>
+        </div>
+      )}
+      {isSmall && (
+        <div className="w-full relative h-[400px]">
+          <div
+            className="w-screen absolute flex justify-center overflow-hidden"
+            style={{ left: "calc(50% - 50vw)" }}
+          >
+            <canvas
+              ref={smCanvasRef}
+              style={{ width: smallCanvasSize.x, height: smallCanvasSize.y }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

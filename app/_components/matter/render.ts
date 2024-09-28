@@ -1,14 +1,4 @@
-import { ImgMapProps } from "."
-import Matter from "matter-js"
-
-export interface RenderProps {
-  Engine: typeof Matter.Engine
-  engine: Matter.Engine
-  Composite: typeof Matter.Composite
-  ctx: CanvasRenderingContext2D
-  canvas: HTMLCanvasElement
-  imgMap: ImgMapProps
-}
+import { RenderProps } from "./types"
 
 export const render = (param: RenderProps) => {
   const { Engine, engine, Composite, ctx, canvas, imgMap } = param

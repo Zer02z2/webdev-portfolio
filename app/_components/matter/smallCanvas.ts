@@ -6,7 +6,7 @@ const createImg = (src: string): HTMLImageElement => {
   return img
 }
 
-export const largeCanvas = (param: CanvasProps): RenderProps => {
+export const smallCanvas = (param: CanvasProps): RenderProps => {
   const {
     canvas,
     ctx,
@@ -22,7 +22,7 @@ export const largeCanvas = (param: CanvasProps): RenderProps => {
     engine,
   } = param
 
-  const iconSize = 60
+  const iconSize = 40
 
   const dpr = window.devicePixelRatio || 1
   canvas.width = canvasWidth * dpr
@@ -31,8 +31,8 @@ export const largeCanvas = (param: CanvasProps): RenderProps => {
 
   const iconList = techList.map((name, index) => {
     const body = Bodies.rectangle(
-      canvasWidth / 2 + 100 + iconSize * Math.floor(index / rows),
-      canvasHeight - iconSize * (1 + (index % rows) - 0.5),
+      canvasWidth / 2 + iconSize * Math.floor(index / rows),
+      canvasHeight - iconSize * (2 + (index % rows) - 0.5),
       iconSize,
       iconSize,
       {
@@ -60,14 +60,14 @@ export const largeCanvas = (param: CanvasProps): RenderProps => {
   })
 
   const ball = Bodies.circle(
-    canvasWidth / 2 - 800,
-    canvasHeight - 8 * iconSize,
+    canvasWidth / 2 - 200,
+    canvasHeight - 4 * iconSize,
     iconSize,
     {
       label: "ball",
       density: 0.04,
       frictionAir: 0.005,
-      force: { x: 10, y: 10 },
+      force: { x: 2, y: 2 },
     }
   )
   imgMap.ball = {
@@ -87,23 +87,23 @@ export const largeCanvas = (param: CanvasProps): RenderProps => {
     }
   )
   const nameBox = Bodies.rectangle(
-    canvasWidth / 2 - 238,
-    canvasHeight - 46,
-    522,
-    93,
+    canvasWidth / 2 - 50,
+    canvasHeight - 46 / 2,
+    522 / 2,
+    93 / 2,
     { label: "nameBox", isStatic: true }
   )
   imgMap.nameBox = {
     src: createImg("/ZONGZE.svg"),
-    w: 522,
-    h: 93,
+    w: 522 / 2,
+    h: 93 / 2,
   }
 
   Composite.add(engine.world, [...iconList, ground, ball, nameBox])
   Composite.add(
     engine.world,
     Constraint.create({
-      pointA: { x: canvasWidth / 2 - 300, y: -200 },
+      pointA: { x: canvasWidth / 2 - 100, y: -200 },
       bodyB: ball,
     })
   )
