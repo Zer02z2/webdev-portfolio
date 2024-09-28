@@ -45,7 +45,7 @@ export const Overview = ({
           <div className="grid grid-cols-4 gap-x-4">
             <div className="col-span-3">
               <Bento border={true}>
-                <div className="flex gap-x-10">
+                <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
                   <div>
                     <SmallText>Type</SmallText>
                     <p>{type}</p>

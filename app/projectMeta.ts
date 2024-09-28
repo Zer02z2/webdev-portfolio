@@ -26,7 +26,7 @@ export const webDevMeta: ProjectMeta = {
   title: "webdev.zongzechen.com",
   type: "Portfolio website",
   url: "https://zongzechen.com",
-  urlName: "This website",
+  urlName: "zongzechen.com",
   feature: "Self-designed and developed Next.js website.",
   tech: ["nextjs", "react", "typescript", "tailwindcss", "framer"],
 }
@@ -37,7 +37,7 @@ export const aiPlaygroundMeta: ProjectMeta = {
   title: "AI Playground",
   type: "Mini Apps",
   url: "https://github.com/Zer02z2/shared-minds",
-  urlName: "Github repo",
+  urlName: "github.com/Zer02z2/shared-minds",
   feature:
     "A series of fun and experimental mini-apps that leverage the power of AI.",
   tech: ["typescript", "replicate", "vite", "firebase"],
@@ -49,7 +49,7 @@ export const skylabMeta: ProjectMeta = {
   title: "Skylab Data System",
   type: "Data Logger",
   url: "https://io.zongzechen.com/energy",
-  urlName: "io.zongzechen.com",
+  urlName: "io.zongzechen.com/energy",
   feature:
     "Full-stack real-time data tracking system for IoT devices with an app that allows data query.",
   tech: ["Javascript", "node-red", "mysql", "nginx", "digitalocean"],
@@ -61,7 +61,7 @@ export const creativeCodingsMeta: ProjectMeta = {
   title: "Creative Codings",
   type: "Experimental",
   url: "https://github.com/Zer02z2/Swimming-Pools-in-the-Hill",
-  urlName: "Read more",
+  urlName: "github.com/Zer02z2/Swimming-Pools-in-the-Hill",
   feature: "A compilation of 3D, 2D, and creative use of the canvas element.",
   tech: ["three-js", "p5js", "javascript", "vite"],
 }
