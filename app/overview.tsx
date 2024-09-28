@@ -14,7 +14,7 @@ export const Overview = ({
   order,
 }: {
   data: ProjectMeta
-  order: string
+  order: number
 }) => {
   const { src, alt, title, type, url, urlName, feature, tech } = data
   const ref = useRef(null)

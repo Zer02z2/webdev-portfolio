@@ -25,7 +25,7 @@ export const webDevMeta: ProjectMeta = {
   alt: "Landing page of this website",
   title: "webdev.zongzechen.com",
   type: "Portfolio website",
-  url: "zongzechen.com",
+  url: "https://zongzechen.com",
   urlName: "This website",
   feature: "Self-designed and developed Next.js website.",
   tech: ["nextjs", "react", "typescript", "tailwindcss", "framer"],
