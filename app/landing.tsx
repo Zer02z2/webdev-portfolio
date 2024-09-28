@@ -33,8 +33,9 @@ export const Landing = () => {
             />
             <div className="pt-2"></div>
             <IconText
-              src="./icons/email.svg"
-              text="zc1411@nyu.edu"
+              src="./icons/linkedin.svg"
+              text="LinkedIn"
+              url="https://www.linkedin.com/in/zongzechen22/"
               iconSize="large"
             />
           </Bento>
