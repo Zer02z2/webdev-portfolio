@@ -39,7 +39,7 @@ export const Overview = ({
     >
       <div className="grid place-items-center">
         <div className="max-w-5xl">
-          <h1 className="text-4xl pb-4">{`${order}. ${title}`}</h1>
+          <h1 className="text-4xl pb-4">{`${order.toString()}. ${title}`}</h1>
           <RoundedImg src={src} alt={alt} />
           <div className="grid grid-cols-4 pt-5 gap-x-4">
             <Bento>
