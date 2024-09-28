@@ -9,6 +9,8 @@ import {
   synapticMeta,
   webDevMeta,
 } from "./projectMeta"
+import { Bento } from "./_components/bento"
+import { About } from "./about"
 
 export default function Home() {
   const projectMeta: ProjectMeta[] = [
@@ -16,7 +18,6 @@ export default function Home() {
     webDevMeta,
     aiPlaygroundMeta,
     skylabMeta,
-    creativeCodingsMeta,
   ]
   return (
     <div>
@@ -26,7 +27,7 @@ export default function Home() {
         <h1 className="text-3xl sm:text-6xl">PROJECTS</h1>
       </div>
       <div className="pt-6 sm:pt-12"></div>
-      <div className="grid grid-cols-1 gap-y-10 xl:grid-cols-2 xl:gap-y-20 gap-x-10">
+      <div className="grid grid-cols-1 gap-y-14 xl:grid-cols-2 xl:gap-y-20 gap-x-10">
         {projectMeta.map((projectData, index) => {
           return (
             <Fragment key={index}>
@@ -35,6 +36,8 @@ export default function Home() {
           )
         })}
       </div>
+      <div className="pt-80"></div>
+      <About />
     </div>
   )
 }
