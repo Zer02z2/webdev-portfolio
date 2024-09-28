@@ -39,10 +39,10 @@ export const Overview = ({
     >
       <div className="grid place-items-center">
         <div>
-          <h1 className="text-4xl pb-4">{`${order.toString()}. ${title}`}</h1>
+          <h1 className="pb-4 text-xl sm:text-4xl">{`${order.toString()}. ${title}`}</h1>
           <RoundedImg src={src} alt={alt} />
           <div className="pt-4"></div>
-          <div className="grid grid-cols-4 gap-x-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-x-4">
             <div className="col-span-3">
               <Bento border={true} dark={false}>
                 <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
@@ -67,7 +67,7 @@ export const Overview = ({
             </div>
             <div className="col-span-1">
               <Bento border={false}>
-                <div className="grid place-items-center h-full">
+                <div className="grid sm:place-items-center h-full">
                   <p className="font-medium">Read more</p>
                 </div>
               </Bento>

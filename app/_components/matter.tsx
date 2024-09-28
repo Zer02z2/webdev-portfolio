@@ -200,8 +200,11 @@ export const MatterScene = () => {
   }, [])
 
   return (
-    <div className="w-full">
-      <div className="flex justify-center">
+    <div className="w-full relative h-[600px]">
+      <div
+        className="w-screen absolute flex justify-center overflow-hidden"
+        style={{ left: "calc(50% - 50vw)" }}
+      >
         <canvas ref={canvasRef} style={{ width: 2000, height: 600 }} />
       </div>
     </div>

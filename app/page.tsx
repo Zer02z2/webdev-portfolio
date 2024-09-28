@@ -23,10 +23,10 @@ export default function Home() {
       <Landing />
       <div className="pt-32"></div>
       <div className="grid place-items-center">
-        <h1 className="text-6xl">PROJECTS</h1>
+        <h1 className="text-3xl sm:text-6xl">PROJECTS</h1>
       </div>
-      <div className="pt-12"></div>
-      <div className="grid gap-y-20 grid-cols-1 xl:grid-cols-2 gap-x-10">
+      <div className="pt-6 sm:pt-12"></div>
+      <div className="grid grid-cols-1 gap-y-10 xl:grid-cols-2 xl:gap-y-20 gap-x-10">
         {projectMeta.map((projectData, index) => {
           return (
             <Fragment key={index}>

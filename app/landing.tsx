@@ -8,7 +8,7 @@ export const Landing = () => {
     <div>
       <MatterScene />
       <div className="flex justify-center pt-10">
-        <div className="grid grid-cols-4 w-full max-w-5xl gap-x-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full max-w-5xl gap-4">
           <Bento border={false}>
             <p className="font-medium">Front-end developer</p>
             <IconText src="./icons/earth.svg" text="United States" />

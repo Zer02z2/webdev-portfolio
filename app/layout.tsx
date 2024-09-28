@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.variable}`}>
         <Aura />
         <Header />
-        <div className="w-full px-8 flex justify-center">
+        <div className="w-full px-4 sm:px-8 flex justify-center">
           <div className="max-w-[1620px] w-full">{children}</div>
         </div>
         <Footer />
