@@ -1,6 +1,6 @@
 import { Bento } from "./_components/bento"
 import { IconText } from "./_components/iconText"
-import { MatterScene } from "./_components/matter"
+import { MatterScene } from "./_components/matter/index"
 import { SmallText } from "./_components/smallText"
 
 export const Landing = () => {
