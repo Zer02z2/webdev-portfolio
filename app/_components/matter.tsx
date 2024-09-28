@@ -62,8 +62,8 @@ export const MatterScene = () => {
     } = {}
     techList.forEach((name) => {
       const fileName = name
-        .split(/[^a-zA-Z]+/)
-        .join("-")
+        .split(/[^a-zA-Z0-9]+/)
+        .join("")
         .toLowerCase()
       if (!imgMap[name]) {
         imgMap[name] = {

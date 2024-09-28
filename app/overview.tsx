@@ -57,7 +57,9 @@ export const Overview = ({
               </Bento>
             </div>
             <Bento border={false}>
-              <div className="grid place-items-center h-full">Read more</div>
+              <div className="grid place-items-center h-full font-medium">
+                Read more
+              </div>
             </Bento>
           </div>
         </div>
