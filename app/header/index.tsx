@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion"
 export const Header = () => {
   const control = useAnimation()
   return (
-    <header className="fixed top-0 p-4 sm:p-8 z-50 mix-blend-exclusion">
+    <header className="fixed top-0 p-4 sm:p-10 z-50 mix-blend-exclusion">
       <Link href="/">
         <div
           className="flex w-20"
