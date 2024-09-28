@@ -26,7 +26,7 @@ export default function Home() {
         <h1 className="text-6xl">PROJECTS</h1>
       </div>
       <div className="pt-12"></div>
-      <div className="grid gap-y-20">
+      <div className="grid gap-y-20 grid-cols-2 gap-x-10">
         {projectMeta.map((projectData, index) => {
           return (
             <Fragment key={index}>
