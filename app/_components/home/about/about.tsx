@@ -4,57 +4,76 @@ import { useEffect, useRef, useState } from "react"
 import { Bento } from "../../bento"
 import { IconText } from "../../iconText"
 import { renderBall } from "./new"
+import { Bodies, Composite, Engine } from "matter-js"
+import { clearTimeout } from "timers"
 
 export const About = () => {
-  const ballRef = useRef<HTMLDivElement>(null)
-  const [ballKey, setBallKey] = useState(1)
-  const [translateX, setTranslateX] = useState(0)
-  const [translateY, setTranslateY] = useState(0)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
   const refs = Array.from({ length: 5 }).map((div) =>
     useRef<HTMLDivElement>(null)
   )
+  const [key, setKey] = useState(1)
+  const lastTime = useRef(Date.now())
 
   useEffect(() => {
-    renderBall({
-      setX: setTranslateX,
-      setY: setTranslateY,
-      setKey: setBallKey,
-      refs: refs,
-      ballRef: ballRef,
+    window.addEventListener("resize", () => {
+      lastTime.current = Date.now()
+      const interval = 300
+      setTimeout(() => {
+        const timeNow = Date.now()
+        if (timeNow - lastTime.current > interval) {
+          setKey((prev) => prev + 1)
+        }
+      }, interval)
     })
-  }, [])
+
+    if (!canvasRef.current) return
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return
+    if (refs.find((ref) => ref.current === null)) return
+
+    const { width, height } = canvas.getBoundingClientRect()
+    canvas.width = width
+    canvas.height = height
+    const engine = Engine.create()
+
+    renderBall({
+      refs: refs,
+      canvas: canvas,
+      ctx: ctx,
+      engine: engine,
+    })
+
+    return () => {
+      Composite.clear(engine.world, true)
+      Engine.clear(engine)
+    }
+  }, [key])
 
   return (
     <div className="relative">
       <div className="pt-40"></div>
-      <div
-        ref={ballRef}
-        key={ballKey}
-        className="absolute top-0 rounded-full size-10 bg-black"
-        style={{
-          transition: "transform 0.1s",
-          transform: `translateX(${translateX}px) translateY(${translateY}px)`,
-        }}
-      ></div>
+      <canvas
+        key={key}
+        ref={canvasRef}
+        className="absolute top-0 w-full h-full z-10"
+      ></canvas>
       <div className="md:flex md:justify-between md:items-end">
-        <h1 className="text-base sm:text-xl lg:text-2xl 2xl:text-4xl">
+        <h1 className="z-10 text-base sm:text-xl lg:text-2xl 2xl:text-4xl">
           <div>
-            <span ref={refs[0]} className="border border-red-500">
-              hi, my name is Zongze.
-            </span>
+            <span ref={refs[0]}>hi, my name is Zongze.</span>
           </div>
           <div>
-            <span ref={refs[1]} className="border border-red-500">
-              I love coding and making beautiful
-            </span>
+            <span ref={refs[1]}>I love coding and making beautiful</span>
           </div>
           <div>
-            <span ref={refs[2]} className="border border-red-500">
+            <span ref={refs[2]}>
               things on the web. To see a broader range of
             </span>
           </div>
           <div>
-            <span ref={refs[3]} className="border border-red-500">
+            <span ref={refs[3]}>
               my other work, you can visit&nbsp;
               <img
                 src="/icons/browser.svg"
@@ -77,17 +96,19 @@ export const About = () => {
             </span>
           </div>
         </h1>
-        <Bento background="#E2E2E2">
-          <IconText
-            src="/icons/email.svg"
-            text="zc1411@nyu.edu"
-            iconSize="large"
-          />
-          <div className="pt-2"></div>
-          <IconText src="/icons/file.svg" text="Resume" iconSize="large" />
-        </Bento>
+        <div className="z-20">
+          <Bento background="#E2E2E2">
+            <IconText
+              src="/icons/email.svg"
+              text="zc1411@nyu.edu"
+              iconSize="large"
+            />
+            <div className="pt-2"></div>
+            <IconText src="/icons/file.svg" text="Resume" iconSize="large" />
+          </Bento>
+        </div>
       </div>
-      <div ref={refs[4]} className="w-full border border-red-500"></div>
+      <div ref={refs[4]} className="w-full"></div>
     </div>
   )
 }

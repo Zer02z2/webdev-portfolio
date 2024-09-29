@@ -8,7 +8,7 @@ import {
   synapticMeta,
   webDevMeta,
 } from "./projectMeta"
-import { About } from "./_components/home/about"
+import { About } from "./_components/home/about/about"
 
 export default function Home() {
   const projectMeta: ProjectMeta[] = [

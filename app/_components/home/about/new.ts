@@ -1,41 +1,75 @@
+import Matter, { Bodies, Body, Composite, Engine } from "matter-js"
 import { RefObject } from "react"
 
 interface BallProps {
-  setX: React.Dispatch<React.SetStateAction<number>>
-  setY: React.Dispatch<React.SetStateAction<number>>
-  setKey: React.Dispatch<React.SetStateAction<number>>
   refs: RefObject<HTMLDivElement>[]
-  ballRef: RefObject<HTMLDivElement>
+  canvas: HTMLCanvasElement
+  ctx: CanvasRenderingContext2D
+  engine: Matter.Engine
 }
 export const renderBall = (param: BallProps) => {
-  const { setX, setY, refs, ballRef } = param
+  const { refs, canvas, ctx, engine } = param
 
-  if (!ballRef.current) return
-  // if (refs.find((ref) => ref.current === null)) return
+  const bodies = refs.map((ref, index) => {
+    const { width, height } = ref.current?.getBoundingClientRect()!
+    const body = Bodies.rectangle(
+      width / 2,
+      canvas.height - (refs.length - index - 1.5) * height,
+      width,
+      height > 0 ? height : 10,
+      {
+        isStatic: true,
+        friction: 0,
+      }
+    )
+    return body
+  })
 
-  const ball = ballRef.current
-  const speed = { x: 1, y: 1 }
+  const radius = 25
+  const position = { x: -radius, y: radius }
+  const force = {
+    x: refs[0].current?.getBoundingClientRect().width! * 0.005,
+    y: 0,
+  }
+  const ball = Bodies.circle(position.x, position.y, radius, {
+    label: "ball",
+    density: 0.04,
+    frictionAir: 0,
+    friction: 0,
+    force: force,
+    restitution: 0.8,
+  })
+
+  Composite.add(engine.world, [...bodies, ball])
 
   const render = () => {
-    const body = ball.getBoundingClientRect()
-    const ballX = body.x + body.width / 2
-    const ballY = body.y + body.height * 1.5
+    Engine.update(engine)
+    const bodies = Composite.allBodies(engine.world)
 
-    setX((prev) => prev + speed.x)
-    setY((prev) => prev + speed.y)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    refs.forEach((ref) => {
-      if (!ref.current) return
-      const { x, y, width } = ref.current.getBoundingClientRect()
-      if (x <= ballX && ballX <= x + width) {
-        if (ballY >= y) {
-          console.log("hit")
-          speed.y *= -1
-          setY((prev) => prev + speed.y)
-        }
+    bodies.forEach((body) => {
+      //if (body.label !== "ball") return
+
+      if (body.position.x - radius > canvas.width) {
+        Body.setPosition(ball, position)
+        Body.setSpeed(ball, 0)
+        Body.applyForce(ball, position, force)
       }
-    })
 
+      const vertices = body.vertices
+      ctx.moveTo(vertices[0].x, vertices[0].y)
+      ctx.beginPath()
+      vertices.forEach((vertex, index) => {
+        if (index === 0) return
+        ctx.lineTo(vertex.x, vertex.y)
+      })
+      ctx.lineTo(vertices[0].x, vertices[0].y)
+      ctx.closePath()
+
+      ctx.fillStyle = "#0059FF"
+      ctx.fill()
+    })
     window.requestAnimationFrame(() => {
       render()
     })
