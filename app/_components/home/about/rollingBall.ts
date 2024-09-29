@@ -1,68 +1,77 @@
-import Matter from "matter-js"
+import Matter, { Bodies, Body, Composite, Engine } from "matter-js"
 import { RefObject } from "react"
 
-interface rollingBallProps {
+interface BallProps {
+  refs: RefObject<HTMLDivElement>[]
   canvas: HTMLCanvasElement
   ctx: CanvasRenderingContext2D
-  Bodies: typeof Matter.Bodies
-  Composite: typeof Matter.Composite
-  Engine: typeof Matter.Engine
   engine: Matter.Engine
-  refs: RefObject<HTMLDivElement>[]
 }
+export const renderBall = (param: BallProps) => {
+  const { refs, canvas, ctx, engine } = param
 
-export const renderBall = (param: rollingBallProps) => {
-  const { canvas, ctx, Bodies, Composite, Engine, engine, refs } = param
-
-  const canvasBounds = canvas.getBoundingClientRect()
-
-  const dpr = window.devicePixelRatio || 1
-  canvas.width *= dpr
-  canvas.height *= dpr
-  ctx.scale(dpr, dpr)
-
-  const bodies = refs.map((ref) => {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    const { x, y, width, height } = rect
-    console.log(y - canvasBounds.y + height * 0.5)
-
+  const bodies = refs.map((ref, index) => {
+    const { width, height } = ref.current?.getBoundingClientRect()!
     const body = Bodies.rectangle(
-      x - canvasBounds.x + width * 0.5,
-      y - canvasBounds.y + height * 0.5,
+      width / 2,
+      canvas.height - (refs.length - index - 1.5) * height,
       width,
-      height,
-      { isStatic: true }
+      height > 0 ? height : 10,
+      {
+        isStatic: true,
+        friction: 0,
+      }
     )
     return body
   })
-  Composite.add(engine.world, bodies as Matter.Body[])
+
+  const radius = 25
+  const position = { x: -radius, y: radius }
+  const force = {
+    x: refs[0].current?.getBoundingClientRect().width! * 0.005,
+    y: 0,
+  }
+  const ball = Bodies.circle(position.x, position.y, radius, {
+    label: "ball",
+    density: 0.04,
+    frictionAir: 0,
+    friction: 0,
+    force: force,
+    restitution: 0.8,
+  })
+
+  Composite.add(engine.world, [...bodies, ball])
 
   const render = () => {
     Engine.update(engine)
     const bodies = Composite.allBodies(engine.world)
 
-    window.requestAnimationFrame(() => {
-      render()
-    })
-    //console.log(bodies)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     bodies.forEach((body) => {
+      if (body.label !== "ball") return
+
+      if (body.position.x - radius > canvas.width) {
+        Body.setPosition(ball, position)
+        Body.setSpeed(ball, 0)
+        Body.applyForce(ball, position, force)
+      }
+
       const vertices = body.vertices
-
       ctx.moveTo(vertices[0].x, vertices[0].y)
-
+      ctx.beginPath()
       vertices.forEach((vertex, index) => {
         if (index === 0) return
         ctx.lineTo(vertex.x, vertex.y)
       })
-
       ctx.lineTo(vertices[0].x, vertices[0].y)
+      ctx.closePath()
 
-      ctx.lineWidth = 1
-      ctx.strokeStyle = "#1E1E1E"
-      ctx.stroke()
+      ctx.fillStyle = "#0059FF"
+      ctx.fill()
+    })
+    window.requestAnimationFrame(() => {
+      render()
     })
   }
   render()
