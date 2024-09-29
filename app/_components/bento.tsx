@@ -10,7 +10,7 @@ export const Bento: FC<{
   const borderColor = dark ? "border-midnight" : "border-silver"
   return (
     <div
-      className={`${borderStyle} border ${borderColor} rounded-lg h-full px-4 py-3`}
+      className={`${borderStyle} border ${borderColor} rounded-lg h-full px-5 py-4`}
       style={{ backgroundColor: background }}
     >
       {children}

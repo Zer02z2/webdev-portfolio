@@ -42,9 +42,9 @@ export const Overview = ({
           <h1 className="pb-4 text-xl sm:text-4xl">{`${order.toString()}. ${title}`}</h1>
           <RoundedImg src={src} alt={alt} />
           <div className="pt-4"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-x-4">
-            <div className="col-span-3">
-              <Bento border={true} dark={false}>
+          <Bento border={true} dark={false}>
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-x-4">
+              <div className="col-span-3">
                 <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
                   <div>
                     <SmallText>Type</SmallText>
@@ -63,16 +63,13 @@ export const Overview = ({
                 <SmallText>Feature</SmallText>
                 <p>{feature}</p>
                 <div className="flex gap-x-2 pt-4">{techIcons}</div>
-              </Bento>
+              </div>
+              <div className="col-span-1"></div>
+              <div className="col-span-1 sm:grid place-items-center">
+                <p className="font-medium">Read more</p>
+              </div>
             </div>
-            <div className="col-span-1">
-              <Bento border={false}>
-                <div className="grid sm:place-items-center h-full">
-                  <p className="font-medium">Read more</p>
-                </div>
-              </Bento>
-            </div>
-          </div>
+          </Bento>
         </div>
       </div>
     </motion.div>

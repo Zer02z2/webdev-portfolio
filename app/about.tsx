@@ -16,7 +16,11 @@ export const About = () => {
             className="size-7 inline-block"
           />
           &nbsp;
-          <a className="inline-block" href="https://zongzechen.com">
+          <a
+            className="inline-block"
+            href="https://zongzechen.com"
+            target="_blank"
+          >
             zongzechen.com.
           </a>{" "}
           <img
@@ -26,7 +30,7 @@ export const About = () => {
           />
         </div>
       </h1>
-      <Bento>
+      <Bento background="#E2E2E2">
         <IconText
           src="/icons/email.svg"
           text="zc1411@nyu.edu"
