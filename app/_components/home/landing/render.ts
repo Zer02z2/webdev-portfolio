@@ -23,8 +23,6 @@ export const render = (param: RenderProps) => {
     ctx.stroke()
   })
 
-  ctx.beginPath()
-
   bodies.forEach((body) => {
     if (body.label !== "nameBox") {
       const vertices = body.vertices

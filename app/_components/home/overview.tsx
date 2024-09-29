@@ -2,12 +2,12 @@
 
 import { motion, useInView } from "framer-motion"
 import { Fragment, useRef } from "react"
-import { Bento } from "./_components/bento"
-import { IconText } from "./_components/iconText"
-import { RoundedImg } from "./_components/roundedImg"
-import { SmallText } from "./_components/smallText"
-import { ProjectMeta } from "./projectMeta"
-import { TechIcon } from "./_components/techIcon"
+import { Bento } from "../bento"
+import { IconText } from "../iconText"
+import { RoundedImg } from "../roundedImg"
+import { SmallText } from "../smallText"
+import { ProjectMeta } from "../../projectMeta"
+import { TechIcon } from "../techIcon"
 
 export const Overview = ({
   data,

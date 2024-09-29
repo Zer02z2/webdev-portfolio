@@ -1,16 +1,14 @@
 import { Fragment } from "react"
-import { Landing } from "./landing"
-import { Overview } from "./overview"
+import { Landing } from "./_components/home/landing/landing"
+import { Overview } from "./_components/home/overview"
 import {
   aiPlaygroundMeta,
-  creativeCodingsMeta,
   ProjectMeta,
   skylabMeta,
   synapticMeta,
   webDevMeta,
 } from "./projectMeta"
-import { Bento } from "./_components/bento"
-import { About } from "./about"
+import { About } from "./_components/home/about/about"
 
 export default function Home() {
   const projectMeta: ProjectMeta[] = [
@@ -36,7 +34,7 @@ export default function Home() {
           )
         })}
       </div>
-      <div className="pt-80"></div>
+      <div className="pt-40"></div>
       <About />
     </div>
   )

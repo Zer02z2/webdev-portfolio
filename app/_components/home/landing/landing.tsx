@@ -1,7 +1,7 @@
-import { Bento } from "./_components/bento"
-import { IconText } from "./_components/iconText"
-import { MatterScene } from "./_components/matter/index"
-import { SmallText } from "./_components/smallText"
+import { Bento } from "../../bento"
+import { IconText } from "../../iconText"
+import { MatterScene } from "./scene"
+import { SmallText } from "../../smallText"
 
 export const Landing = () => {
   return (
