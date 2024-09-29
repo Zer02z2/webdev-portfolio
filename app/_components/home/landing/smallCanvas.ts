@@ -1,3 +1,4 @@
+import { Bodies, Composite, Constraint } from "matter-js"
 import { CanvasProps, ImgMapProps, RenderProps } from "./types"
 
 const createImg = (src: string): HTMLImageElement => {
@@ -15,10 +16,6 @@ export const smallCanvas = (param: CanvasProps): RenderProps => {
     techList,
     rows,
     textureScale,
-    Bodies,
-    Composite,
-    Constraint,
-    Engine,
     engine,
   } = param
 
@@ -109,9 +106,7 @@ export const smallCanvas = (param: CanvasProps): RenderProps => {
   )
 
   return {
-    Engine: Engine,
     engine: engine,
-    Composite: Composite,
     ctx: ctx,
     canvas: canvas,
     imgMap: imgMap,

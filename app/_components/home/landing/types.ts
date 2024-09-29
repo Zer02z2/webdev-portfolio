@@ -12,17 +12,11 @@ export interface CanvasProps {
   techList: string[]
   rows: number
   textureScale: number
-  Bodies: typeof Matter.Bodies
-  Composite: typeof Matter.Composite
-  Constraint: typeof Matter.Constraint
-  Engine: typeof Matter.Engine
   engine: Matter.Engine
 }
 
 export interface RenderProps {
-  Engine: typeof Matter.Engine
   engine: Matter.Engine
-  Composite: typeof Matter.Composite
   ctx: CanvasRenderingContext2D
   canvas: HTMLCanvasElement
   imgMap: ImgMapProps

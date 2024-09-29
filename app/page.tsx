@@ -3,6 +3,7 @@ import { Landing } from "./_components/home/landing/landing"
 import { Overview } from "./_components/home/overview"
 import {
   aiPlaygroundMeta,
+  creativeCodingsMeta,
   ProjectMeta,
   skylabMeta,
   synapticMeta,
@@ -16,6 +17,7 @@ export default function Home() {
     webDevMeta,
     aiPlaygroundMeta,
     skylabMeta,
+    creativeCodingsMeta,
   ]
   return (
     <div>
@@ -34,7 +36,7 @@ export default function Home() {
           )
         })}
       </div>
-      <div className="pt-40"></div>
+      <div className="pt-20"></div>
       <About />
     </div>
   )

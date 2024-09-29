@@ -1,7 +1,8 @@
+import { Composite, Engine } from "matter-js"
 import { RenderProps } from "./types"
 
 export const render = (param: RenderProps) => {
-  const { Engine, engine, Composite, ctx, canvas, imgMap } = param
+  const { engine, ctx, canvas, imgMap } = param
 
   Engine.update(engine)
   const bodies = Composite.allBodies(engine.world)

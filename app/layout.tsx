@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable}`}>
+        <div id="top-anchor" className="h-0"></div>
         <Aura />
         <Header />
         <div className="w-full px-4 sm:px-10 flex justify-center">

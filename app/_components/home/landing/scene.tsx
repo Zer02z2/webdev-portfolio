@@ -1,6 +1,6 @@
 "use client"
 
-import Matter from "matter-js"
+import { Composite, Engine } from "matter-js"
 import { useEffect, useRef, useState } from "react"
 import { render } from "./render"
 import { largeCanvas } from "./largeCanvas"
@@ -29,10 +29,6 @@ export const MatterScene = () => {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    const Engine = Matter.Engine,
-      Bodies = Matter.Bodies,
-      Composite = Matter.Composite,
-      Constraint = Matter.Constraint
     const engine = Engine.create()
 
     const textureScale = 0.7,
@@ -69,10 +65,6 @@ export const MatterScene = () => {
         techList: techList,
         rows: rows,
         textureScale: textureScale,
-        Bodies: Bodies,
-        Composite: Composite,
-        Constraint: Constraint,
-        Engine: Engine,
         engine: engine,
       })
       render(param)
@@ -85,10 +77,6 @@ export const MatterScene = () => {
         techList: techList,
         rows: rows,
         textureScale: textureScale,
-        Bodies: Bodies,
-        Composite: Composite,
-        Constraint: Constraint,
-        Engine: Engine,
         engine: engine,
       })
       render(param)
