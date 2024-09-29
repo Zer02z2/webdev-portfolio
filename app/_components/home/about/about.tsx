@@ -4,11 +4,10 @@ import { useEffect, useRef, useState } from "react"
 import { Bento } from "../../bento"
 import { IconText } from "../../iconText"
 import { renderBall } from "./new"
-import Matter from "matter-js"
 
 export const About = () => {
-  // const canvasRef = useRef<HTMLCanvasElement>(null)
-  // const ballRef = useRef<HTMLDivElement>(null)
+  const ballRef = useRef<HTMLDivElement>(null)
+  const [ballKey, setBallKey] = useState(1)
   const [translateX, setTranslateX] = useState(0)
   const [translateY, setTranslateY] = useState(0)
   const refs = Array.from({ length: 5 }).map((div) =>
@@ -16,40 +15,27 @@ export const About = () => {
   )
 
   useEffect(() => {
-    renderBall({ setX: setTranslateX, setY: setTranslateY, refs: refs })
-    // const canvas = canvasRef.current
-    // if (!(canvas && refs.every((ref) => ref.current !== null))) return
-    // const ctx = canvas.getContext("2d")
-    // if (!ctx) return
-    // const Engine = Matter.Engine,
-    //   Bodies = Matter.Bodies,
-    //   Composite = Matter.Composite
-    // const engine = Engine.create()
-    // renderBall({
-    //   canvas: canvas,
-    //   ctx: ctx,
-    //   Bodies: Bodies,
-    //   Composite: Composite,
-    //   Engine: Engine,
-    //   engine: engine,
-    //   refs: refs,
-    // })
+    renderBall({
+      setX: setTranslateX,
+      setY: setTranslateY,
+      setKey: setBallKey,
+      refs: refs,
+      ballRef: ballRef,
+    })
   }, [])
 
   return (
     <div className="relative">
       <div className="pt-40"></div>
       <div
+        ref={ballRef}
+        key={ballKey}
         className="absolute top-0 rounded-full size-10 bg-black"
         style={{
           transition: "transform 0.1s",
           transform: `translateX(${translateX}px) translateY(${translateY}px)`,
         }}
       ></div>
-      {/* <canvas
-        ref={canvasRef}
-        className="-z-10 absolute top-0 w-full h-full"
-      ></canvas> */}
       <div className="md:flex md:justify-between md:items-end">
         <h1 className="text-base sm:text-xl lg:text-2xl 2xl:text-4xl">
           <div>
