@@ -10,15 +10,21 @@ interface BallProps {
 export const renderBall = (param: BallProps) => {
   const { refs, canvas, ctx, engine } = param
 
-  const bodies = refs.map((ref, index) => {
+  const bodySizes = refs.map((ref, index) => {
     const { width, height } = ref.current
       ? ref.current.getBoundingClientRect()
-      : { width: 1, height: 1 }
+      : { width: 0, height: 0 }
+    return { w: width, h: height }
+  })
+
+  const bodies = bodySizes.map((size, index) => {
+    const steps = bodySizes.slice(index + 1, bodySizes.length - 1)
+    const height = steps.reduce((h, step) => h + step.h, 0)
     const body = Bodies.rectangle(
-      width / 2,
-      canvas.height - (refs.length - index - 1.5) * height,
-      width,
-      height > 0 ? height : 10,
+      size.w / 2,
+      canvas.height - (size.h / 2 + height),
+      size.w,
+      size.h > 0 ? size.h : 10,
       {
         isStatic: true,
         friction: 0,

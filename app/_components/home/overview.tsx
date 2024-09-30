@@ -33,9 +33,9 @@ export const Overview = ({
   return (
     <motion.div
       ref={ref}
-      initial={{ y: 50, opacity: 0 }}
+      initial={{ y: 20, opacity: 0 }}
       animate={isInView && { y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, type: "tween", ease: "easeOut" }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="grid place-items-center">
         <div>

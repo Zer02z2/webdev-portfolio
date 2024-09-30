@@ -78,7 +78,7 @@ export const About = () => {
               <img
                 src="/icons/browser.svg"
                 alt="browser icons."
-                className="size-7 inline-block"
+                className="size-3 sm:size-4 lg:size-5 2xl:size-7 inline-block"
               />
               &nbsp;
               <a
@@ -91,7 +91,7 @@ export const About = () => {
               <img
                 src="/icons/up-right-arrow.svg"
                 alt="arrow"
-                className="size-6 inline-block"
+                className="size-2 sm:size-3 lg:size-4 2xl:size-6 inline-block"
               />
             </span>
           </div>

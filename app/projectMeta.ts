@@ -58,7 +58,7 @@ export const skylabMeta: ProjectMeta = {
 export const creativeCodingsMeta: ProjectMeta = {
   src: "/projects/infinite-swimming-pools/landing.png",
   alt: "3D modling scene of a swimming on a dirt hill",
-  title: "Creative Codings",
+  title: "Creative Coding Collection",
   type: "Experimental",
   url: "https://github.com/Zer02z2/Swimming-Pools-in-the-Hill",
   urlName: "github.com/Zer02z2/Swimming-Pools-in-the-Hill",
