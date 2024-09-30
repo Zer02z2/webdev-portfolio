@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div>
       <Hero projectMeta={synapticMeta} />
-      <Intro>
+      <Intro skills={[...synapticMeta.tech, "html", "css", "figma"]}>
         During my internship at Synaptic Medical, I was responsible for
         designing and developing the new company website using Wordpress.org. My
         work includes dynamic generation of web page, client-side interactions,

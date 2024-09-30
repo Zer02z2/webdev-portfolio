@@ -1,13 +1,14 @@
 "use client"
 
 import { ProjectMeta } from "@/app/projectMeta"
-import { RoundedImg } from "../roundedImg"
 import { Bento } from "../bento"
 import { SmallText } from "../smallText"
 import { IconText } from "../iconText"
 import { TechIcon } from "../techIcon"
 import { Fragment } from "react"
 import { motion } from "framer-motion"
+import { CoverImg } from "../coverImg"
+import { RoundedImg } from "../roundedImg"
 
 export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
   const {
@@ -39,38 +40,31 @@ export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
-      <div className="min-h-screen grid xl:grid-cols-10 pt-28 gap-8">
-        <div className="xl:col-span-6 relative">
-          <RoundedImg src={src} alt={alt} />
-        </div>
-        <div className="xl:pl-6 xl:col-span-4 flex flex-col justify-end">
-          <div>
-            <h1 className="pb-8 text-xl sm:text-4xl">{title}</h1>
-            <div className="grid grid-cols-2 gap-x-4">
-              <Bento>
-                <SmallText>Type</SmallText>
-                <p className="pb-4">{type}</p>
-                <SmallText>URL</SmallText>
-                <IconText
-                  src="/icons/browser.svg"
-                  text={urlName}
-                  url={url}
-                ></IconText>
-              </Bento>
-              <Bento>
-                <SmallText>Year</SmallText>
-                <p className="pb-4">{year}</p>
-                <SmallText>Role</SmallText>
-                <p>{role}</p>
-              </Bento>
+      <div className="grid pt-28 gap-8">
+        <div className="grid grid-cols-2">
+          <div className="flex flex-col justify-end">
+            <h1 className="text-xl sm:text-4xl">{title}</h1>
+          </div>
+          <div className="grid grid-cols-2 gap-x-4">
+            <div>
+              <SmallText>Type</SmallText>
+              <p className="pb-4">{type}</p>
+              <SmallText>URL</SmallText>
+              <IconText
+                src="/icons/browser.svg"
+                text={urlName}
+                url={url}
+              ></IconText>
             </div>
-            <Bento border={false}>
-              <SmallText>Feature</SmallText>
-              <p className="pb-4">{feature}</p>
-              <div className="flex gap-x-2">{techIcons}</div>
-            </Bento>
+            <div>
+              <SmallText>Year</SmallText>
+              <p className="pb-4">{year}</p>
+              <SmallText>Role</SmallText>
+              <p>{role}</p>
+            </div>
           </div>
         </div>
+        <RoundedImg src={src} alt={alt} />
       </div>
     </motion.div>
   )
