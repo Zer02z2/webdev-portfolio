@@ -25,15 +25,6 @@ export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
     role,
   } = projectMeta
 
-  const techIcons = tech.map((name, index) => {
-    return (
-      <Fragment key={index}>
-        <div className="size-8">
-          <TechIcon name={name} />
-        </div>
-      </Fragment>
-    )
-  })
   return (
     <motion.div
       initial={{ y: 20, opacity: 0 }}
