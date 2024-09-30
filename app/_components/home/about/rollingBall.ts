@@ -10,7 +10,7 @@ interface BallProps {
 export const renderBall = (param: BallProps) => {
   const { refs, canvas, ctx, engine } = param
 
-  const bodySizes = refs.map((ref, index) => {
+  const bodySizes = refs.map((ref) => {
     const { width, height } = ref.current
       ? ref.current.getBoundingClientRect()
       : { width: 0, height: 0 }
