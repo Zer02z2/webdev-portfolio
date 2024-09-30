@@ -8,19 +8,22 @@ import { Composite, Engine } from "matter-js"
 
 export const About = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const refs = Array.from({ length: 5 }).map((div) =>
-    useRef<HTMLDivElement>(null)
-  )
+  const ref1 = useRef<HTMLDivElement>(null)
+  const ref2 = useRef<HTMLDivElement>(null)
+  const ref3 = useRef<HTMLDivElement>(null)
+  const ref4 = useRef<HTMLDivElement>(null)
+  const ref5 = useRef<HTMLDivElement>(null)
+  const refs = [ref1, ref2, ref3, ref4, ref5]
   const [key, setKey] = useState(1)
-  const lastTime = useRef(Date.now())
 
   useEffect(() => {
+    let lastTime = Date.now()
     window.addEventListener("resize", () => {
-      lastTime.current = Date.now()
+      lastTime = Date.now()
       const interval = 300
       setTimeout(() => {
         const timeNow = Date.now()
-        if (timeNow - lastTime.current > interval) {
+        if (timeNow - lastTime > interval) {
           setKey((prev) => prev + 1)
         }
       }, interval)
@@ -59,45 +62,41 @@ export const About = () => {
           ref={canvasRef}
           className="absolute top-0 w-full h-full -z-10"
         ></canvas>
-        <div>
-          <h1 className="z-10 text-base sm:text-xl lg:text-2xl 2xl:text-4xl">
-            <div>
-              <span ref={refs[0]}>hi, my name is Zongze.</span>
-            </div>
-            <div>
-              <span ref={refs[1]}>I love coding and making beautiful</span>
-            </div>
-            <div>
-              <span ref={refs[2]}>
-                things on the web. To see a broader range of
-              </span>
-            </div>
-            <div>
-              <span ref={refs[3]}>
-                my other work, you can visit&nbsp;
-                <img
-                  src="/icons/browser.svg"
-                  alt="browser icons."
-                  className="size-7 inline-block"
-                />
-                &nbsp;
-                <a
-                  className="inline-block"
-                  href="https://zongzechen.com"
-                  target="_blank"
-                >
-                  zongzechen.com.
-                </a>{" "}
-                <img
-                  src="/icons/up-right-arrow.svg"
-                  alt="arrow"
-                  className="size-6 inline-block"
-                />
-              </span>
-            </div>
-          </h1>
-        </div>
-        <div ref={refs[4]} className="w-full"></div>
+        <h1 className="z-10 text-base sm:text-xl lg:text-2xl 2xl:text-4xl">
+          <div>
+            <span ref={ref1}>hi, my name is Zongze.</span>
+          </div>
+          <div>
+            <span ref={ref2}>I love coding and making beautiful</span>
+          </div>
+          <div>
+            <span ref={ref3}>things on the web. To see a broader range of</span>
+          </div>
+          <div>
+            <span ref={ref4}>
+              my other work, you can visit&nbsp;
+              <img
+                src="/icons/browser.svg"
+                alt="browser icons."
+                className="size-7 inline-block"
+              />
+              &nbsp;
+              <a
+                className="inline-block"
+                href="https://zongzechen.com"
+                target="_blank"
+              >
+                zongzechen.com.
+              </a>{" "}
+              <img
+                src="/icons/up-right-arrow.svg"
+                alt="arrow"
+                className="size-6 inline-block"
+              />
+            </span>
+          </div>
+        </h1>
+        <div ref={ref5} className="w-full"></div>
       </div>
       <div className="z-20 max-w-56 pt-4 md:absolute md:bottom-0 md:right-0">
         <Bento background="#E2E2E2">

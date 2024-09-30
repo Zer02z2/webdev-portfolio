@@ -11,7 +11,9 @@ export const renderBall = (param: BallProps) => {
   const { refs, canvas, ctx, engine } = param
 
   const bodies = refs.map((ref, index) => {
-    const { width, height } = ref.current?.getBoundingClientRect()!
+    const { width, height } = ref.current
+      ? ref.current.getBoundingClientRect()
+      : { width: 1, height: 1 }
     const body = Bodies.rectangle(
       width / 2,
       canvas.height - (refs.length - index - 1.5) * height,
@@ -28,7 +30,9 @@ export const renderBall = (param: BallProps) => {
   const radius = 25
   const position = { x: -radius, y: radius }
   const force = {
-    x: refs[0].current?.getBoundingClientRect().width! * 0.005,
+    x: refs[0].current
+      ? refs[0].current.getBoundingClientRect().width * 0.005
+      : 1,
     y: 0,
   }
   const ball = Bodies.circle(position.x, position.y, radius, {
