@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable}`}>
+      <body className={`${inter.className}`}>
         <div id="top-anchor" className="h-0"></div>
         <Aura />
         <Header />

@@ -26,7 +26,7 @@ export const About = () => {
         if (timeNow - lastTime > interval) {
           setKey((prev) => prev + 1)
         }
-      }, interval)
+      }, interval + 5)
     })
 
     if (!canvasRef.current) return

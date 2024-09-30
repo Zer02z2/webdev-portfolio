@@ -7,7 +7,7 @@ export const Footer = () => {
   return (
     <footer>
       <div className="pt-28 pb-10 flex justify-center">
-        <Link href="#top-anchor">
+        <Link href="#top-anchor" scroll={true}>
           <motion.img
             src="/icons/arrow-up.svg"
             alt="Up arrow."

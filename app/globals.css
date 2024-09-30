@@ -8,12 +8,7 @@
   --silver: #656565;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 .html {
-  font-family: var(--font-inter);
   margin: 0;
   padding: 0;
 }

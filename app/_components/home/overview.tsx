@@ -8,6 +8,7 @@ import { RoundedImg } from "../roundedImg"
 import { SmallText } from "../smallText"
 import { ProjectMeta } from "../../projectMeta"
 import { TechIcon } from "../techIcon"
+import Link from "next/link"
 
 export const Overview = ({
   data,
@@ -16,7 +17,7 @@ export const Overview = ({
   data: ProjectMeta
   order: number
 }) => {
-  const { src, alt, title, type, url, urlName, feature, tech } = data
+  const { src, alt, title, type, url, urlName, feature, tech, slug } = data
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -65,9 +66,12 @@ export const Overview = ({
                 <div className="flex gap-x-2 pt-4">{techIcons}</div>
               </div>
               <div className="col-span-1"></div>
-              <div className="col-span-1 sm:grid place-items-center">
+              <Link
+                className="col-span-1 sm:grid place-items-center"
+                href={`/${slug}`}
+              >
                 <p className="font-medium">Read more</p>
-              </div>
+              </Link>
             </div>
           </Bento>
         </div>
