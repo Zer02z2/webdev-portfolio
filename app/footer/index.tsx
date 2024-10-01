@@ -15,7 +15,7 @@ export const Footer = () => {
               y: -3,
             }}
             transition={{
-              duration: 0.3,
+              duration: 0.2,
               ease: "easeOut",
             }}
           />

@@ -34,10 +34,10 @@ export const Intro: FC<{ children: string; skills?: string[] }> = ({
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="max-w-3xl">
-          <h1 className="text-2xl pb-10">{children}</h1>
+          <h1 className="text-xl md:text-2xl pb-10">{children}</h1>
           <Bento inline={true} dark={false}>
             <SmallText>Skills I used</SmallText>
-            <div className="flex gap-6 pt-4">{techIcons}</div>
+            <div className="flex gap-6 pt-4 flex-wrap">{techIcons}</div>
           </Bento>
         </div>
       </motion.div>

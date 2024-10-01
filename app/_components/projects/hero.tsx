@@ -32,9 +32,9 @@ export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
       transition={{ duration: 0.7, ease: "easeOut" }}
     >
       <div className="grid pt-28 gap-8">
-        <div className="grid grid-cols-2">
+        <div className="grid gap-y-14 lg:grid-cols-2">
           <div className="flex flex-col justify-end">
-            <h1 className="text-xl sm:text-4xl">{title}</h1>
+            <h1 className="text-2xl sm:text-4xl">{title}</h1>
           </div>
           <div className="grid grid-cols-2 gap-x-4">
             <div>

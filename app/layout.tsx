@@ -9,7 +9,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 
 export const metadata: Metadata = {
   title: "Zongze Chen",
-  description: "Front-end developer",
+  description:
+    "hi, my name is Zongze. I love coding and making beautiful things on the web.",
 }
 
 export default function RootLayout({
