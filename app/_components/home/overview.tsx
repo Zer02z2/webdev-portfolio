@@ -15,7 +15,7 @@ export const Overview = ({
   order,
 }: {
   data: ProjectMeta
-  order: number
+  order?: number
 }) => {
   const { src, alt, title, type, url, urlName, feature, tech, slug } = data
   const ref = useRef(null)
@@ -40,7 +40,9 @@ export const Overview = ({
     >
       <div className="grid place-items-center">
         <div>
-          <h1 className="pb-4 text-2xl sm:text-4xl">{`${order.toString()}. ${title}`}</h1>
+          <h1 className="pb-4 text-2xl sm:text-4xl">{`${
+            order ? `${order.toString()}. ` : ""
+          }${title}`}</h1>
           <RoundedImg src={src} alt={alt} />
           <div className="pt-4"></div>
           <Bento border={true} dark={false}>

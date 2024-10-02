@@ -6,7 +6,7 @@ import { TechIcon } from "../techIcon"
 import { Bento } from "../bento"
 import { SmallText } from "../smallText"
 
-export const Intro: FC<{ children: string; skills?: string[] }> = ({
+export const BigText: FC<{ children: string; skills?: string[] }> = ({
   children,
   skills,
 }) => {
@@ -34,11 +34,15 @@ export const Intro: FC<{ children: string; skills?: string[] }> = ({
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="max-w-3xl">
-          <h1 className="text-xl md:text-2xl pb-10">{children}</h1>
-          <Bento inline={true} dark={false}>
-            <SmallText>Skills I used</SmallText>
-            <div className="flex gap-6 pt-4 flex-wrap">{techIcons}</div>
-          </Bento>
+          <h1 className="text-xl md:text-2xl">{children}</h1>
+          {skills && (
+            <div className="pt-10">
+              <Bento inline={true} dark={false}>
+                <SmallText>Skills I used</SmallText>
+                <div className="flex gap-6 pt-4 flex-wrap">{techIcons}</div>
+              </Bento>
+            </div>
+          )}
         </div>
       </motion.div>
     </div>
