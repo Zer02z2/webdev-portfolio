@@ -11,8 +11,8 @@ export default function Page() {
       <BigText skills={[...webDevMeta.tech, "matter-js", "figma"]}>
         I made this website as a project to experiment with Next.js. It is 100%
         code-based and original in design, built from the ground up. One of the
-        experiments I did was to mix canvas with HTML elements and sync them on
-        viewport resizing.
+        experiments I did was to mix canvas with HTML elements in a physics
+        engine.
       </BigText>
       <div className="grid xl:grid-cols-2 gap-4">
         <FadeIn>
@@ -23,10 +23,10 @@ export default function Page() {
         </FadeIn>
       </div>
       <BigText>
-        I used Matter.js as the physics engine to simulate body collision on the
-        canvas. To make the ball bounce on text, I grab the size and position of
-        the div to create the collision bodies in the canvas. When the window
-        resizes, the canvas will get rerendered to match the HTML elements.
+        The physics simulation is achieved with Matter.js. To make the ball
+        bounce on text, the size and position of the divs were calculated into
+        the canvas to create the collision bodies. When the window resizes, the
+        canvas will get rerendered to re-calibrate.
       </BigText>
       <BigText>
         Besides canvas, I also used the Framer Motion library to create smooth
