@@ -3,6 +3,7 @@ import { BigText } from "../_components/projects/bigText"
 import { ScrollingImg } from "../_components/scrollingImg"
 import { synapticMeta, webDevMeta } from "../projectMeta"
 import { Overview } from "../_components/home/overview"
+import { FadeIn } from "../_components/fadeIn"
 
 export default function Page() {
   return (
@@ -113,7 +114,9 @@ export default function Page() {
       </div>
       <div className="pt-40 flex justify-center">
         <div className="max-w-3xl">
-          <h1 className="text-3xl sm:text-6xl pb-20">Next</h1>
+          <FadeIn>
+            <h1 className="text-3xl sm:text-6xl pb-20">Next</h1>
+          </FadeIn>
           <Overview data={webDevMeta} />
         </div>
       </div>
