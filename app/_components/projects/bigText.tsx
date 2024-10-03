@@ -1,4 +1,4 @@
-import { FC, Fragment, useRef } from "react"
+import { FC, Fragment } from "react"
 import { TechIcon } from "../techIcon"
 import { Bento } from "../bento"
 import { SmallText } from "../smallText"

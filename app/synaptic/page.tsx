@@ -20,7 +20,7 @@ export default function Page() {
         ]}
       >
         During my internship at Synaptic Medical, I worked on the design and
-        development of the company's website using Wordpress.org. My work
+        development of the company&apos;s website using Wordpress.org. My work
         includes dynamic generation of web page, client-side interactions,
         responsive design, and so on.
       </BigText>
@@ -30,8 +30,7 @@ export default function Page() {
             src="/projects/synaptic/products-phone.png"
             width={750}
             height={3952}
-            ratio={1 / 2}
-            speed={30}
+            speed={-30}
           ></ScrollingImg>
         </div>
         <div className="col-span-3 h-1/2 sm:h-full">
@@ -39,7 +38,7 @@ export default function Page() {
             src="/projects/synaptic/home-desktop.jpg"
             width={1903}
             height={2402}
-            ratio={3 / 2}
+            speed={-20}
           ></ScrollingImg>
         </div>
       </div>
@@ -55,8 +54,7 @@ export default function Page() {
             src="/projects/synaptic/product-line-desktop.png"
             width={1903}
             height={2342}
-            ratio={16 / 9}
-            speed={10}
+            speed={-10}
           ></ScrollingImg>
         </div>
         <div className="col-span-2 h-1/2 sm:h-full">
@@ -64,8 +62,7 @@ export default function Page() {
             src="/projects/synaptic/job-desktop.jpg"
             width={1903}
             height={1875}
-            ratio={16 / 9}
-            speed={10}
+            speed={-10}
           ></ScrollingImg>
         </div>
       </div>
@@ -78,9 +75,7 @@ export default function Page() {
             src="/projects/synaptic/product-line-bottom-phone.jpg"
             width={750}
             height={5316}
-            ratio={1 / 2}
             speed={20}
-            backward={true}
           ></ScrollingImg>
         </div>
         <div className="col-span-1 h-full">
@@ -88,8 +83,7 @@ export default function Page() {
             src="/projects/synaptic/products-phone.png"
             width={750}
             height={3952}
-            ratio={1 / 2}
-            speed={20}
+            speed={-20}
           ></ScrollingImg>
         </div>
         <div className="col-span-1 h-full">
@@ -97,9 +91,7 @@ export default function Page() {
             src="/projects/synaptic/home-phone.jpg"
             width={750}
             height={6552}
-            ratio={1 / 2}
             speed={20}
-            backward={true}
           ></ScrollingImg>
         </div>
         <div className="col-span-1 h-full">
@@ -107,8 +99,7 @@ export default function Page() {
             src="/projects/synaptic/job-phone.jpg"
             width={750}
             height={4642}
-            ratio={1 / 2}
-            speed={20}
+            speed={-20}
           ></ScrollingImg>
         </div>
       </div>
