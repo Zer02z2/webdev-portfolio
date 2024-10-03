@@ -1,36 +1,14 @@
-"use client"
-
 import { ProjectMeta } from "@/app/projectMeta"
-import { Bento } from "../bento"
 import { SmallText } from "../smallText"
 import { IconText } from "../iconText"
-import { TechIcon } from "../techIcon"
-import { Fragment } from "react"
-import { motion } from "framer-motion"
-import { CoverImg } from "../coverImg"
 import { RoundedImg } from "../roundedImg"
+import { FadeIn } from "../fadeIn"
 
 export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
-  const {
-    src,
-    alt,
-    title,
-    slug,
-    type,
-    url,
-    urlName,
-    feature,
-    tech,
-    year,
-    role,
-  } = projectMeta
+  const { src, alt, title, type, url, urlName, year, role } = projectMeta
 
   return (
-    <motion.div
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
+    <FadeIn>
       <div className="grid pt-28 gap-8">
         <div className="grid gap-y-14 lg:grid-cols-2">
           <div className="flex flex-col justify-end">
@@ -57,6 +35,6 @@ export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
         </div>
         <RoundedImg src={src} alt={alt} />
       </div>
-    </motion.div>
+    </FadeIn>
   )
 }

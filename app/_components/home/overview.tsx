@@ -1,7 +1,4 @@
-"use client"
-
-import { motion, useInView } from "framer-motion"
-import { Fragment, useRef } from "react"
+import { Fragment } from "react"
 import { Bento } from "../bento"
 import { IconText } from "../iconText"
 import { RoundedImg } from "../roundedImg"
@@ -9,6 +6,7 @@ import { SmallText } from "../smallText"
 import { ProjectMeta } from "../../projectMeta"
 import { TechIcon } from "../techIcon"
 import Link from "next/link"
+import { FadeIn } from "../fadeIn"
 
 export const Overview = ({
   data,
@@ -18,8 +16,6 @@ export const Overview = ({
   order?: number
 }) => {
   const { src, alt, title, type, url, urlName, feature, tech, slug } = data
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
 
   const techIcons = tech.map((name, index) => {
     return (
@@ -32,12 +28,7 @@ export const Overview = ({
   })
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ y: 20, opacity: 0 }}
-      animate={isInView && { y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: "easeOut" }}
-    >
+    <FadeIn>
       <div className="grid place-items-center">
         <div>
           <h1 className="pb-4 text-2xl sm:text-4xl">{`${
@@ -78,6 +69,6 @@ export const Overview = ({
           </Bento>
         </div>
       </div>
-    </motion.div>
+    </FadeIn>
   )
 }
