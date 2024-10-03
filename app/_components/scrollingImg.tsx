@@ -9,7 +9,6 @@ import {
 } from "framer-motion"
 import Image from "next/image"
 import { useRef } from "react"
-import { FadeIn } from "./fadeIn"
 
 export const ScrollingImg = ({
   src,
@@ -45,21 +44,22 @@ export const ScrollingImg = ({
     : useTransform(springY, [0, 1], ["0%", `-${speed}%`])
 
   return (
-    <FadeIn className="overflow-hidden rounded-lg w-full h-full relative">
-      <div ref={ref} className="h-full">
-        <motion.div
-          className={`w-full absolute ${backward ? "bottom-0" : "top-0"}`}
-          style={{ y }}
-        >
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            quality={100}
-          />
-        </motion.div>
-      </div>
-    </FadeIn>
+    <div
+      ref={ref}
+      className="overflow-hidden rounded-lg w-full h-full relative"
+    >
+      <motion.div
+        className={`w-full absolute ${backward ? "bottom-0" : "top-0"}`}
+        style={{ y }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          quality={100}
+        />
+      </motion.div>
+    </div>
   )
 }
