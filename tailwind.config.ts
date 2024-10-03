@@ -13,6 +13,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         midnight: "var(--midnight)",
         silver: "var(--silver)",
+        deepblue: "var(--deepblue)",
       },
     },
   },
