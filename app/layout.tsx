@@ -2,8 +2,8 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import { Aura } from "./_components/aura"
-import { Footer } from "./footer"
-import { Header } from "./header"
+import { Footer } from "./_footer"
+import { Header } from "./_header"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 

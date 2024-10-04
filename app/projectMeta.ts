@@ -40,11 +40,11 @@ export const webDevMeta: ProjectMeta = {
   role: "Design & Development",
 }
 
-export const aiPlaygroundMeta: ProjectMeta = {
+export const aiStorybookMeta: ProjectMeta = {
   src: "/projects/ai-playground/landing.jpg",
   alt: "Snapshot of an AI comic generator",
   title: "AI Storybook",
-  slug: "ai-playground",
+  slug: "ai-storybook",
   type: "AI App",
   url: "https://zer02z2.github.io/shared-minds/week3/",
   urlName: "github.com/Zer02z2/shared-minds",

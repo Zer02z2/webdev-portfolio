@@ -2,15 +2,23 @@ import { Composite, Engine } from "matter-js"
 import { RenderProps } from "./types"
 
 export const render = (param: RenderProps) => {
-  const { engine, ctx, canvas, imgMap } = param
+  const { engine } = param
 
-  Engine.update(engine)
+  const update = () => {
+    Engine.update(engine)
+    draw(param)
+
+    window.requestAnimationFrame(() => {
+      update()
+    })
+  }
+  update()
+}
+
+const draw = (param: RenderProps) => {
+  const { engine, ctx, canvas, imgMap } = param
   const bodies = Composite.allBodies(engine.world)
   const constraints = Composite.allConstraints(engine.world)
-
-  window.requestAnimationFrame(() => {
-    render(param)
-  })
 
   ctx.clearRect(0, 0, canvas.width, canvas.height)
 

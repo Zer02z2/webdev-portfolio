@@ -2,7 +2,7 @@ import { Fragment } from "react"
 import { Landing } from "./_components/home/landing"
 import { Overview } from "./_components/home/overview"
 import {
-  aiPlaygroundMeta,
+  aiStorybookMeta,
   creativeCodingsMeta,
   ProjectMeta,
   skylabMeta,
@@ -14,7 +14,7 @@ import { About } from "./_components/home/about"
 export default function Home() {
   const projectMeta: ProjectMeta[] = [
     synapticMeta,
-    aiPlaygroundMeta,
+    aiStorybookMeta,
     skylabMeta,
     creativeCodingsMeta,
     webDevMeta,
