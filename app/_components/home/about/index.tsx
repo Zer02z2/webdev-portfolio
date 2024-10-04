@@ -67,14 +67,16 @@ export const About = () => {
             <span ref={ref1}>hi, my name is Zongze.</span>
           </div>
           <div>
-            <span ref={ref2}>I love coding and making beautiful</span>
+            <span ref={ref2}>I have a focus on Javascript frameworks</span>
           </div>
           <div>
-            <span ref={ref3}>things on the web. To see a broader range of</span>
+            <span ref={ref3}>
+              and love making beautiful things on the web. To see
+            </span>
           </div>
           <div>
             <span ref={ref4}>
-              my other work, you can visit&nbsp;
+              a broader range of my other work, you can visit&nbsp;
               <img
                 src="/icons/browser.svg"
                 alt="browser icons."
@@ -98,7 +100,7 @@ export const About = () => {
         </h1>
         <div ref={ref5} className="w-full"></div>
       </div>
-      <div className="z-20 max-w-56 pt-4 md:absolute md:bottom-0 md:right-0">
+      <div className="z-20 max-w-56 pt-4 xl:absolute xl:bottom-0 xl:right-0">
         <Bento background="#E2E2E2">
           <IconText
             src="/icons/email.svg"
