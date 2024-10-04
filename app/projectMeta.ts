@@ -49,7 +49,7 @@ export const aiStorybookMeta: ProjectMeta = {
   url: "https://zer02z2.github.io/shared-minds/week3/",
   urlName: "github.com/Zer02z2/shared-minds",
   feature: "Take turns with AI to write stories and comics.",
-  tech: ["typescript", "replicate", "vite", "firebase"],
+  tech: ["typescript", "replicate", "vite"],
   year: "2024",
   role: "Design & Development",
 }

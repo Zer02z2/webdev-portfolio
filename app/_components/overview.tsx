@@ -1,12 +1,12 @@
 import { Fragment } from "react"
-import { Bento } from "../bento"
-import { IconText } from "../iconText"
-import { RoundedImg } from "../roundedImg"
-import { SmallText } from "../smallText"
-import { ProjectMeta } from "../../projectMeta"
-import { TechIcon } from "../techIcon"
+import { Bento } from "./bento"
+import { IconText } from "./iconText"
+import { RoundedImg } from "./roundedImg"
+import { SmallText } from "./smallText"
+import { ProjectMeta } from "../projectMeta"
+import { TechIcon } from "./techIcon"
 import Link from "next/link"
-import { FadeIn } from "../fadeIn"
+import { FadeIn } from "./fadeIn"
 
 export const Overview = ({
   data,
@@ -34,7 +34,9 @@ export const Overview = ({
           <h1 className="pb-4 text-2xl sm:text-4xl">{`${
             order ? `${order.toString()}. ` : ""
           }${title}`}</h1>
-          <RoundedImg src={src} alt={alt} />
+          <Link href={`/${slug}`}>
+            <RoundedImg src={src} alt={alt} />
+          </Link>
           <div className="pt-4"></div>
           <Bento border={true} dark={false}>
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-x-4">

@@ -1,10 +1,10 @@
-import { FC, Fragment } from "react"
+import { FC, Fragment, ReactNode } from "react"
 import { TechIcon } from "../techIcon"
 import { Bento } from "../bento"
 import { SmallText } from "../smallText"
 import { FadeIn } from "../fadeIn"
 
-export const BigText: FC<{ children: string; skills?: string[] }> = ({
+export const BigText: FC<{ children: ReactNode; skills?: string[] }> = ({
   children,
   skills,
 }) => {

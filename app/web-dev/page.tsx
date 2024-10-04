@@ -1,8 +1,9 @@
 import { FadeIn } from "../_components/fadeIn"
 import { BigText } from "../_components/projects/bigText"
 import { Hero } from "../_components/projects/hero"
+import { NextProject } from "../_components/projects/nextProject"
 import { RoundedImg } from "../_components/roundedImg"
-import { webDevMeta } from "../projectMeta"
+import { synapticMeta, webDevMeta } from "../projectMeta"
 
 export default function Page() {
   return (
@@ -37,6 +38,7 @@ export default function Page() {
           <RoundedImg src="/projects/webdev/scroll-animation.gif" />
         </div>
       </FadeIn>
+      <NextProject metaData={synapticMeta} />
     </div>
   )
 }

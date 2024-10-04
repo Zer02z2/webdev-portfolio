@@ -1,6 +1,6 @@
 import { Fragment } from "react"
 import { Landing } from "./_components/home/landing"
-import { Overview } from "./_components/home/overview"
+import { Overview } from "./_components/overview"
 import {
   aiStorybookMeta,
   creativeCodingsMeta,

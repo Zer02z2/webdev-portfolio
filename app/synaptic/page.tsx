@@ -1,9 +1,8 @@
 import { Hero } from "../_components/projects/hero"
 import { BigText } from "../_components/projects/bigText"
 import { ScrollingImg } from "../_components/scrollingImg"
-import { synapticMeta, webDevMeta } from "../projectMeta"
-import { Overview } from "../_components/home/overview"
-import { FadeIn } from "../_components/fadeIn"
+import { aiStorybookMeta, synapticMeta } from "../projectMeta"
+import { NextProject } from "../_components/projects/nextProject"
 
 export default function Page() {
   return (
@@ -103,14 +102,7 @@ export default function Page() {
           ></ScrollingImg>
         </div>
       </div>
-      <div className="pt-40 flex justify-center">
-        <div className="max-w-3xl">
-          <FadeIn>
-            <h1 className="text-3xl sm:text-6xl pb-20">Next</h1>
-          </FadeIn>
-          <Overview data={webDevMeta} />
-        </div>
-      </div>
+      <NextProject metaData={aiStorybookMeta} />
     </div>
   )
 }

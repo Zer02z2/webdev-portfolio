@@ -14,7 +14,7 @@ export const RoundedImg = ({
   quality?: number
 }) => {
   return (
-    <div className="overflow-hidden rounded-lg">
+    <div className="overflow-hidden rounded-lg pointer-events-none">
       <Image
         src={src}
         alt={alt}
