@@ -27,11 +27,9 @@ export default function Page() {
         The physics simulation is achieved with Matter.js. To make the ball
         bounce on text, the size and position of the divs were calculated into
         the canvas to create the collision bodies. When the window resizes, the
-        canvas will get rerendered to re-calibrate.
-      </BigText>
-      <BigText>
-        Besides canvas, I also used the Framer Motion library to create smooth
-        transitions and parallax scrolling effects.
+        canvas will get rerendered to re-calibrate.<br></br>
+        <br></br>Besides canvas, I also used the Framer Motion library to create
+        smooth transitions and parallax scrolling effects.
       </BigText>
       <FadeIn>
         <div className="rounded-lg p-20 bg-gradient-to-br from-deepblue to-midnight">

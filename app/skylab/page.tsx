@@ -23,7 +23,7 @@ export default function Page() {
         various filters and dynamically renders the components.
       </BigText>
       <div className="w-full flex justify-center">
-        <div className="max-w-3xl">
+        <div className="max-w-6xl">
           <FadeIn>
             <SmallText>Network diagram</SmallText>
             <div className="pt-2"></div>

@@ -106,7 +106,12 @@ export const About = () => {
             iconSize="large"
           />
           <div className="pt-2"></div>
-          <IconText src="/icons/file.svg" text="Resume" iconSize="large" />
+          <IconText
+            src="/icons/file.svg"
+            text="Resume"
+            iconSize="large"
+            url="/zongze-chen-resume.pdf"
+          />
         </Bento>
       </div>
     </div>

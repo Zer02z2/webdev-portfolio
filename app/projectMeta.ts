@@ -6,6 +6,7 @@ export interface ProjectMeta {
   type: string
   url: string
   urlName: string
+  linkType?: "external" | "internal"
   feature: string
   tech: string[]
   year: string
@@ -74,8 +75,9 @@ export const creativeComputingMeta: ProjectMeta = {
   title: "Creative Computing Collection",
   slug: "creative-computing",
   type: "Experimental",
-  url: "https://github.com/Zer02z2/Swimming-Pools-in-the-Hill",
-  urlName: "github.com/Zer02z2/Swimming-Pools-in-the-Hill",
+  url: "/creative-computing",
+  urlName: "Multiples",
+  linkType: "internal",
   feature: "AI, 3D, 2D, interactive sites, and all the fun stuff",
   tech: ["three-js", "p5js", "javascript", "vite"],
   year: "2022 - Now",

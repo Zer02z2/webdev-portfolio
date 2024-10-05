@@ -8,14 +8,19 @@ import { TechIcon } from "./techIcon"
 import Link from "next/link"
 import { FadeIn } from "./fadeIn"
 
-export const Overview = ({
-  data,
-  order,
-}: {
-  data: ProjectMeta
-  order?: number
-}) => {
-  const { src, alt, title, type, url, urlName, feature, tech, slug } = data
+export const Overview = ({ data }: { data: ProjectMeta }) => {
+  const {
+    src,
+    alt,
+    title,
+    type,
+    url,
+    urlName,
+    linkType = "external",
+    feature,
+    tech,
+    slug,
+  } = data
 
   const techIcons = tech.map((name, index) => {
     return (
@@ -31,14 +36,12 @@ export const Overview = ({
     <FadeIn>
       <div className="grid place-items-center">
         <div>
-          <h1 className="pb-4 text-2xl sm:text-4xl">{`${
-            order ? `${order.toString()}. ` : ""
-          }${title}`}</h1>
           <Link href={`/${slug}`}>
             <RoundedImg src={src} alt={alt} />
           </Link>
           <div className="pt-4"></div>
           <Bento border={true} dark={false}>
+            <h1 className="text-2xl pb-4">{title}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-x-4">
               <div className="col-span-3">
                 <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
@@ -52,6 +55,7 @@ export const Overview = ({
                       src="./icons/browser.svg"
                       text={urlName}
                       url={url}
+                      linkType={linkType}
                     />
                   </div>
                 </div>

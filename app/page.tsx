@@ -34,7 +34,7 @@ export default function Home() {
         {projectMeta.map((projectData, index) => {
           return (
             <Fragment key={index}>
-              <Overview data={projectData} order={index + 1} />
+              <Overview data={projectData} />
             </Fragment>
           )
         })}
