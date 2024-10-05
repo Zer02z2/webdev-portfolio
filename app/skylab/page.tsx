@@ -5,7 +5,7 @@ import { Hero } from "../_components/projects/hero"
 import { NextProject } from "../_components/projects/nextProject"
 import { RoundedImg } from "../_components/roundedImg"
 import { SmallText } from "../_components/smallText"
-import { creativeCodingsMeta, skylabMeta } from "../projectMeta"
+import { creativeComputingMeta, skylabMeta } from "../projectMeta"
 
 export default function Page() {
   return (
@@ -53,7 +53,7 @@ export default function Page() {
               iconSize="large"
             />
           </BigText>
-          <NextProject metaData={creativeCodingsMeta} />
+          <NextProject metaData={creativeComputingMeta} />
         </div>
       </div>
     </div>

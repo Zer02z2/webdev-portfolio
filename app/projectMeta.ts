@@ -68,11 +68,11 @@ export const skylabMeta: ProjectMeta = {
   role: "Design & Development",
 }
 
-export const creativeCodingsMeta: ProjectMeta = {
-  src: "/projects/infinite-swimming-pools/landing.png",
+export const creativeComputingMeta: ProjectMeta = {
+  src: "/projects/creative-computing/infinite-swimming-pool.png",
   alt: "3D modling scene of a swimming on a dirt hill",
-  title: "Creative Coding Collection",
-  slug: "creative-coding",
+  title: "Creative Computing Collection",
+  slug: "creative-computing",
   type: "Experimental",
   url: "https://github.com/Zer02z2/Swimming-Pools-in-the-Hill",
   urlName: "github.com/Zer02z2/Swimming-Pools-in-the-Hill",

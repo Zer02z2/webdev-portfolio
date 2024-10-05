@@ -3,7 +3,7 @@ import { Landing } from "./_components/home/landing"
 import { Overview } from "./_components/overview"
 import {
   aiStorybookMeta,
-  creativeCodingsMeta,
+  creativeComputingMeta,
   ProjectMeta,
   skylabMeta,
   synapticMeta,
@@ -17,7 +17,7 @@ export default function Home() {
     synapticMeta,
     aiStorybookMeta,
     skylabMeta,
-    creativeCodingsMeta,
+    creativeComputingMeta,
     webDevMeta,
   ]
   return (
