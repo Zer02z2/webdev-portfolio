@@ -67,16 +67,14 @@ export const About = () => {
             <span ref={ref1}>hi, my name is Zongze.</span>
           </div>
           <div>
-            <span ref={ref2}>I have a focus on Javascript frameworks</span>
+            <span ref={ref2}>I love coding and making beautiful</span>
           </div>
           <div>
-            <span ref={ref3}>
-              and love making beautiful things on the web. To see
-            </span>
+            <span ref={ref3}>things on the web. To see a broader range of</span>
           </div>
           <div>
             <span ref={ref4}>
-              a broader range of my other work, you can visit&nbsp;
+              my other work, you can visit&nbsp;
               <img
                 src="/icons/browser.svg"
                 alt="browser icons."

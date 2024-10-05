@@ -2,12 +2,15 @@ import { Bento } from "../../bento"
 import { IconText } from "../../iconText"
 import { MatterScene } from "./scene"
 import { SmallText } from "../../smallText"
+import { FadeIn } from "../../fadeIn"
 
 export const Landing = () => {
   return (
     <div>
-      <MatterScene />
-      <div className="flex justify-center pt-10">
+      <FadeIn reverse={false}>
+        <MatterScene />
+      </FadeIn>
+      <FadeIn className="flex justify-center pt-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full max-w-5xl gap-4">
           <Bento border={false}>
             <p className="font-medium">Front-end developer</p>
@@ -49,7 +52,7 @@ export const Landing = () => {
             ></IconText>
           </Bento>
         </div>
-      </div>
+      </FadeIn>
     </div>
   )
 }

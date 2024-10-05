@@ -15,9 +15,9 @@ export default function Page() {
         This app is a full-stack data tracking system with the backend running
         on Node-RED and hosted on DigitalOcean. It was made for the ITP Energy
         class to help everyone collect data on their solar IoT devices.<br></br>
-        <br></br>The backend listens to MQTT messages and stores them in an SQL
-        database. It also handles incoming queries to serve the right data
-        correctly.<br></br>
+        <br></br>The backend listens to MQTT messages and stores them in an
+        SQLite database. I wrote custom scripts to run SQLite commands in order
+        to write and query the correct data in and out of the database.<br></br>
         <br></br>
         The front end is a simple, plain Javascript app that fetches data by
         various filters and dynamically renders the components.

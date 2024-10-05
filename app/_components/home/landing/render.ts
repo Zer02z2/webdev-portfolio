@@ -7,10 +7,7 @@ export const render = (param: RenderProps) => {
   const update = () => {
     Engine.update(engine)
     draw(param)
-
-    window.requestAnimationFrame(() => {
-      update()
-    })
+    window.requestAnimationFrame(update)
   }
   update()
 }
