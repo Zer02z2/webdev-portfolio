@@ -84,6 +84,15 @@ export const creativeComputingMeta: ProjectMeta = {
   role: "Design & Development",
 }
 
+// export const timeMachineMeta: ProjectMeta = {
+//   src: "/projects/time-machine/landing16-9.jpg",
+//   alt: "Website interface that tells time",
+//   title: "Time Machine",
+//   slug: "time-machine",
+//   type: "Multiuser app",
+//   url:
+// }
+
 export const selectedProjects: ProjectMeta[] = [
   synapticMeta,
   aiStorybookMeta,
