@@ -13,7 +13,7 @@ export const Entry = ({ projectMeta }: { projectMeta: CreativeMeta }) => {
   const techIcons = tech.map((name, index) => {
     return (
       <Fragment key={index}>
-        <div className="size-8">
+        <div className="size-5 lg:size-8">
           <TechIcon name={name} />
         </div>
       </Fragment>
@@ -21,25 +21,25 @@ export const Entry = ({ projectMeta }: { projectMeta: CreativeMeta }) => {
   })
   return (
     <FadeIn>
-      <div className="grid grid-cols-10 gap-10">
+      <div className="grid md:grid-cols-10 gap-10">
         <div className="col-span-6">
           <RoundedImg src={src} alt={alt} />
         </div>
         <div className="col-span-4 flex items-center">
           <div>
-            <h1 className="text-2xl sm:text-4xl pb-8">{title}</h1>
+            <h1 className="text-2xl lg:text-4xl pb-2 lg:pb-8">{title}</h1>
             <IconText
               src="/icons/browser.svg"
               text={liveUrlName}
               url={liveUrl}
             />
-            <div className="pt-2"></div>
+            <div className="pt-0 lg:pt-2"></div>
             <IconText
               src="/techIcons/github.svg"
               text={codeUrlName}
               url={codeUrl}
             />
-            <div className="pt-10"></div>
+            <div className="pt-5 lg:pt-10"></div>
             <Bento inline={true}>
               <div className="flex gap-6 flex-wrap">{techIcons}</div>
             </Bento>
