@@ -1,7 +1,7 @@
 import { Hero } from "../_components/projects/hero"
 import { BigText } from "../_components/projects/bigText"
 import { ScrollingImg } from "../_components/scrollingImg"
-import { aiStorybookMeta, synapticMeta } from "../projectMeta"
+import { synapticMeta } from "../projectMeta"
 import { NextProject } from "../_components/projects/nextProject"
 
 export default function Page() {

@@ -1,5 +1,5 @@
 import { NextProject } from "../_components/projects/nextProject"
-import { creativeComputingMeta, webDevMeta } from "../projectMeta"
+import { creativeComputingMeta } from "../projectMeta"
 import { Entry } from "./entry"
 import {
   clockMeta,

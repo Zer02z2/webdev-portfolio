@@ -3,7 +3,7 @@ import { BigText } from "../_components/projects/bigText"
 import { Hero } from "../_components/projects/hero"
 import { NextProject } from "../_components/projects/nextProject"
 import { RoundedImg } from "../_components/roundedImg"
-import { synapticMeta, webDevMeta } from "../projectMeta"
+import { webDevMeta } from "../projectMeta"
 
 export default function Page() {
   return (

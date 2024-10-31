@@ -5,7 +5,7 @@ import { Hero } from "../_components/projects/hero"
 import { NextProject } from "../_components/projects/nextProject"
 import { RoundedImg } from "../_components/roundedImg"
 import { SmallText } from "../_components/smallText"
-import { creativeComputingMeta, skylabMeta } from "../projectMeta"
+import { skylabMeta } from "../projectMeta"
 
 export default function Page() {
   return (
