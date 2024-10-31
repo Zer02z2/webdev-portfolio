@@ -102,7 +102,7 @@ export default function Page() {
           ></ScrollingImg>
         </div>
       </div>
-      <NextProject metaData={aiStorybookMeta} />
+      <NextProject currentProject={synapticMeta} />
     </div>
   )
 }

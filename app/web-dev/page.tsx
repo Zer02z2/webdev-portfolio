@@ -36,7 +36,7 @@ export default function Page() {
           <RoundedImg src="/projects/webdev/scroll-animation.gif" />
         </div>
       </FadeIn>
-      <NextProject metaData={synapticMeta} />
+      <NextProject currentProject={webDevMeta} />
     </div>
   )
 }

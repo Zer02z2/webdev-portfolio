@@ -1,5 +1,5 @@
 import { NextProject } from "../_components/projects/nextProject"
-import { webDevMeta } from "../projectMeta"
+import { creativeComputingMeta, webDevMeta } from "../projectMeta"
 import { Entry } from "./entry"
 import {
   clockMeta,
@@ -17,7 +17,7 @@ export default function Page() {
       <Entry projectMeta={fishSimulationMeta} />
       <Entry projectMeta={visibleTypingMeta} />
       <Entry projectMeta={rhythmLegoMeta} />
-      <NextProject metaData={webDevMeta} />
+      <NextProject currentProject={creativeComputingMeta} />
     </div>
   )
 }

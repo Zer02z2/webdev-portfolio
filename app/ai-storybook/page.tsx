@@ -2,7 +2,7 @@ import { IconText } from "../_components/iconText"
 import { BigText } from "../_components/projects/bigText"
 import { Hero } from "../_components/projects/hero"
 import { NextProject } from "../_components/projects/nextProject"
-import { aiStorybookMeta, skylabMeta } from "../projectMeta"
+import { aiStorybookMeta } from "../projectMeta"
 
 export default function Page() {
   return (
@@ -24,7 +24,7 @@ export default function Page() {
           url="https://github.com/Zer02z2/shared-minds/tree/main/src/week3"
         />
       </BigText>
-      <NextProject metaData={skylabMeta} />
+      <NextProject currentProject={aiStorybookMeta} />
     </div>
   )
 }

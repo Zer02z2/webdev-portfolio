@@ -83,3 +83,11 @@ export const creativeComputingMeta: ProjectMeta = {
   year: "2022 - Now",
   role: "Design & Development",
 }
+
+export const selectedProjects: ProjectMeta[] = [
+  synapticMeta,
+  aiStorybookMeta,
+  skylabMeta,
+  creativeComputingMeta,
+  webDevMeta,
+]

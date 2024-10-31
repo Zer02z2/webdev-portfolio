@@ -53,7 +53,7 @@ export default function Page() {
               iconSize="large"
             />
           </BigText>
-          <NextProject metaData={creativeComputingMeta} />
+          <NextProject currentProject={skylabMeta} />
         </div>
       </div>
     </div>
