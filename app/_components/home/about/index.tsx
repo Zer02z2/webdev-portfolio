@@ -5,6 +5,7 @@ import { Bento } from "../../bento"
 import { IconText } from "../../iconText"
 import { renderBall } from "./rollingBall"
 import { Composite, Engine } from "matter-js"
+import { SmallText } from "../../smallText"
 
 export const About = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -100,18 +101,13 @@ export const About = () => {
       </div>
       <div className="z-20 max-w-56 pt-4 xl:absolute xl:bottom-0 xl:right-0">
         <Bento background="#E2E2E2">
-          <IconText
-            src="/icons/email.svg"
-            text="zc1411@nyu.edu"
-            iconSize="large"
-          />
+          <SmallText>More information</SmallText>
           <div className="pt-2"></div>
           <IconText
-            src="/icons/file.svg"
-            text="Resume"
-            iconSize="large"
-            url="/zongze-chen-resume.pdf"
-          />
+            src="./icons/browser.svg"
+            text="zongzechen.com"
+            url="https://zongzechen.com"
+          ></IconText>
         </Bento>
       </div>
     </div>

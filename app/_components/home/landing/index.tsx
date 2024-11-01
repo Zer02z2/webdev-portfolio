@@ -43,13 +43,18 @@ export const Landing = () => {
             />
           </Bento>
           <Bento>
-            <SmallText>More information</SmallText>
+            <IconText
+              src="/icons/email.svg"
+              text="zc1411@nyu.edu"
+              iconSize="large"
+            />
             <div className="pt-2"></div>
             <IconText
-              src="./icons/browser.svg"
-              text="zongzechen.com"
-              url="https://zongzechen.com"
-            ></IconText>
+              src="/icons/file.svg"
+              text="Resume"
+              iconSize="large"
+              url="/zongze-chen-resume.pdf"
+            />
           </Bento>
         </div>
       </FadeIn>

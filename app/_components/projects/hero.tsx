@@ -5,7 +5,8 @@ import { RoundedImg } from "../roundedImg"
 import { FadeIn } from "../fadeIn"
 
 export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
-  const { src, alt, title, type, url, urlName, year, role } = projectMeta
+  const { src, alt, title, type, url, urlName, year, role, codeUrl } =
+    projectMeta
 
   return (
     <FadeIn>
@@ -16,9 +17,23 @@ export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
           </div>
           <div className="grid grid-cols-2 gap-x-4">
             <div>
-              <SmallText>Type</SmallText>
-              <p className="pb-4">{type}</p>
-              <SmallText>URL</SmallText>
+              {codeUrl ? (
+                <>
+                  <SmallText>Source code</SmallText>
+                  <IconText
+                    src="/techIcons/github.svg"
+                    text="Repository"
+                    url={codeUrl}
+                  ></IconText>
+                </>
+              ) : (
+                <>
+                  <SmallText>Type</SmallText>
+                  <p>{type}</p>
+                </>
+              )}
+              <div className="pt-4"></div>
+              <SmallText>Live website</SmallText>
               <IconText
                 src="/icons/browser.svg"
                 text={urlName}

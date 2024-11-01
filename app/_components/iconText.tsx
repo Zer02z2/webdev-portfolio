@@ -39,7 +39,7 @@ export const IconText = ({
           className={`${iconSize === "large" ? "size-7" : "size-4"}`}
         />
       </div>
-      <div className="truncate">{content()}</div>
+      <div className="truncate max-w-48">{content()}</div>
     </div>
   )
 }

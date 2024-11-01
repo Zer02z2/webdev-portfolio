@@ -13,13 +13,13 @@ export const Overview = ({ data }: { data: ProjectMeta }) => {
     src,
     alt,
     title,
-    type,
     url,
     urlName,
     linkType = "external",
     feature,
     tech,
     slug,
+    codeUrl,
   } = data
 
   const techIcons = tech.map((name, index) => {
@@ -46,11 +46,7 @@ export const Overview = ({ data }: { data: ProjectMeta }) => {
               <div className="col-span-3">
                 <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
                   <div>
-                    <SmallText>Type</SmallText>
-                    <p>{type}</p>
-                  </div>
-                  <div>
-                    <SmallText>URL</SmallText>
+                    <SmallText>Live website</SmallText>
                     <IconText
                       src="./icons/browser.svg"
                       text={urlName}
@@ -58,6 +54,16 @@ export const Overview = ({ data }: { data: ProjectMeta }) => {
                       linkType={linkType}
                     />
                   </div>
+                  {codeUrl && (
+                    <div>
+                      <SmallText>Source code</SmallText>
+                      <IconText
+                        src="./techIcons/github.svg"
+                        text="Repository"
+                        url={codeUrl}
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="pt-4"></div>
                 <SmallText>Feature</SmallText>

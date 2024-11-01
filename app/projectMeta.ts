@@ -11,6 +11,7 @@ export interface ProjectMeta {
   tech: string[]
   year: string
   role: string
+  codeUrl?: string
 }
 
 export const synapticMeta: ProjectMeta = {
@@ -39,6 +40,7 @@ export const webDevMeta: ProjectMeta = {
   tech: ["nextjs", "react", "typescript", "tailwindcss", "framer"],
   year: "2024",
   role: "Design & Development",
+  codeUrl: "https://github.com/Zer02z2/webdev-portfolio",
 }
 
 export const aiStorybookMeta: ProjectMeta = {
@@ -53,6 +55,7 @@ export const aiStorybookMeta: ProjectMeta = {
   tech: ["typescript", "replicate", "vite"],
   year: "2024",
   role: "Design & Development",
+  codeUrl: "https://github.com/Zer02z2/shared-minds/tree/main/src/week3",
 }
 
 export const skylabMeta: ProjectMeta = {
@@ -92,16 +95,18 @@ export const timeMachineMeta: ProjectMeta = {
   type: "Multiuser app",
   url: "https://io.zongzechen.com/undnet/timeMachine/",
   urlName: "io.zongzechen.com/undenet/timeMachine",
-  feature: "Comparing clock difference on multiple devices in milliseconds",
+  feature: "Multi-devices clock syncing",
   tech: ["react", "tailwindcss", "nodejs", "expressjs", "socketio"],
   year: "2024",
   role: "Design & Development",
+  codeUrl: "https://github.com/Zer02z2/time-machine",
 }
 
 export const selectedProjects: ProjectMeta[] = [
-  synapticMeta,
+  timeMachineMeta,
   aiStorybookMeta,
   skylabMeta,
+  synapticMeta,
   creativeComputingMeta,
   webDevMeta,
 ]
