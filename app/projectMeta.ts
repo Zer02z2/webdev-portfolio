@@ -84,14 +84,19 @@ export const creativeComputingMeta: ProjectMeta = {
   role: "Design & Development",
 }
 
-// export const timeMachineMeta: ProjectMeta = {
-//   src: "/projects/time-machine/landing16-9.jpg",
-//   alt: "Website interface that tells time",
-//   title: "Time Machine",
-//   slug: "time-machine",
-//   type: "Multiuser app",
-//   url:
-// }
+export const timeMachineMeta: ProjectMeta = {
+  src: "/projects/time-machine/landing16-9.jpg",
+  alt: "Website interface that tells time",
+  title: "Time Machine",
+  slug: "time-machine",
+  type: "Multiuser app",
+  url: "https://io.zongzechen.com/undnet/timeMachine/",
+  urlName: "io.zongzechen.com/undenet/timeMachine",
+  feature: "Comparing clock difference on multiple devices in milliseconds",
+  tech: ["react", "tailwindcss", "nodejs", "expressjs", "socketio"],
+  year: "2024",
+  role: "Design & Development",
+}
 
 export const selectedProjects: ProjectMeta[] = [
   synapticMeta,
