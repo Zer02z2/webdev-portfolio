@@ -63,7 +63,6 @@ export default function Page() {
           ></iframe>
         </div>
       </FadeIn>
-      <script src="https://player.vimeo.com/api/player.js"></script>
       <NextProject currentProject={coBrowsingMeta} />
     </div>
   )
