@@ -33,12 +33,16 @@ export const Hero = ({ projectMeta }: { projectMeta: ProjectMeta }) => {
                 </>
               )}
               <div className="pt-4"></div>
-              <SmallText>Live website</SmallText>
-              <IconText
-                src="/icons/browser.svg"
-                text={urlName}
-                url={url}
-              ></IconText>
+              {url && urlName && (
+                <div>
+                  <SmallText>Live website</SmallText>
+                  <IconText
+                    src="/icons/browser.svg"
+                    text={urlName}
+                    url={url}
+                  ></IconText>
+                </div>
+              )}
             </div>
             <div>
               <SmallText>Year</SmallText>

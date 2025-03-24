@@ -100,7 +100,7 @@ export const About = () => {
         <div ref={ref5} className="w-full"></div>
       </div>
       <div className="z-20 max-w-56 pt-4 xl:absolute xl:bottom-0 xl:right-0">
-        <Bento background="#E2E2E2">
+        <Bento>
           <SmallText>More information</SmallText>
           <div className="pt-2"></div>
           <IconText

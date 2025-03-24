@@ -53,7 +53,7 @@ export const MatterScene = () => {
         "gsap",
         "mysql",
         "wordpress",
-        "figma",
+        "webrtc",
       ]
 
     if (isSmall) {

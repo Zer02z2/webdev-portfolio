@@ -11,6 +11,18 @@ export interface CreativeMeta {
 
 const srcPath = "/projects/creative-computing"
 
+export const koiPondMeta: CreativeMeta = {
+  src: srcPath + "/koi-pond.gif",
+  alt: "An animated scene of koi fish swimming in a pond",
+  title: "Koi Pond",
+  liveUrl: "https://zer02z2.github.io/creative-computing/fish-body-simulation/",
+  liveUrlName: "Live website",
+  codeUrl:
+    "https://github.com/Zer02z2/creative-computing/tree/main/src/fish-body-simulation",
+  codeUrlName: "Source code",
+  tech: ["typescript"],
+}
+
 export const swimmingPoolMeta: CreativeMeta = {
   src: srcPath + "/infinite-swimming-pool.png",
   alt: "3D modling scene of a swimming on a dirt hill",
@@ -19,7 +31,7 @@ export const swimmingPoolMeta: CreativeMeta = {
   liveUrlName: "Live website",
   codeUrl: "https://github.com/Zer02z2/Swimming-Pools-in-the-Hill",
   codeUrlName: "Source code",
-  tech: ["threejs", "javascript", "vite"],
+  tech: ["threejs", "javascript"],
 }
 
 export const visibleTypingMeta: CreativeMeta = {

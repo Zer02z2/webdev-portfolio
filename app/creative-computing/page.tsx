@@ -4,6 +4,7 @@ import { Entry } from "./entry"
 import {
   clockMeta,
   fishSimulationMeta,
+  koiPondMeta,
   rhythmLegoMeta,
   swimmingPoolMeta,
   visibleTypingMeta,
@@ -12,6 +13,7 @@ import {
 export default function Page() {
   return (
     <div className="pt-28 flex flex-col gap-y-10">
+      <Entry projectMeta={koiPondMeta} />
       <Entry projectMeta={swimmingPoolMeta} />
       <Entry projectMeta={clockMeta} />
       <Entry projectMeta={fishSimulationMeta} />

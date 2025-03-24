@@ -37,23 +37,30 @@ export const Overview = ({ data }: { data: ProjectMeta }) => {
       <div className="grid place-items-center">
         <div>
           <Link href={`/${slug}`}>
-            <RoundedImg src={src} alt={alt} />
+            <div className="relative rounded-lg overflow-hidden">
+              <div className="absolute w-full h-full flex justify-center items-center backdrop-blur-3xl opacity-0 transition-opacity duration-200 ease-out hover:opacity-100">
+                <span className="text-md">Read more</span>
+              </div>
+              <RoundedImg src={src} alt={alt} />
+            </div>
           </Link>
           <div className="pt-4"></div>
           <Bento border={true} dark={false}>
             <h1 className="text-2xl pb-4">{title}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-5 gap-x-4">
-              <div className="col-span-3">
+              <div className="col-span-5">
                 <div className="gap-x-10 flex flex-col gap-y-4 2xl:flex-row">
-                  <div>
-                    <SmallText>Live website</SmallText>
-                    <IconText
-                      src="./icons/browser.svg"
-                      text={urlName}
-                      url={url}
-                      linkType={linkType}
-                    />
-                  </div>
+                  {url && urlName && (
+                    <div>
+                      <SmallText>Live website</SmallText>
+                      <IconText
+                        src="./icons/browser.svg"
+                        text={urlName}
+                        url={url}
+                        linkType={linkType}
+                      />
+                    </div>
+                  )}
                   {codeUrl && (
                     <div>
                       <SmallText>Source code</SmallText>
@@ -66,17 +73,17 @@ export const Overview = ({ data }: { data: ProjectMeta }) => {
                   )}
                 </div>
                 <div className="pt-4"></div>
-                <SmallText>Feature</SmallText>
+                <SmallText>About</SmallText>
                 <p>{feature}</p>
                 <div className="flex gap-x-2 pt-4">{techIcons}</div>
               </div>
-              <div className="col-span-1"></div>
+              {/* <div className="col-span-1"></div>
               <Link
                 className="col-span-1 sm:grid place-items-center"
                 href={`/${slug}`}
               >
                 <p className="font-medium">Read more</p>
-              </Link>
+              </Link> */}
             </div>
           </Bento>
         </div>

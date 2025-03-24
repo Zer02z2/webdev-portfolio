@@ -15,10 +15,10 @@ export default function Page() {
           "digitalOcean",
         ]}
       >
-        As an educational/explanatory website, this program uses the ping by
-        asking the server what time it is to calculate the differences in clocks
-        with an accuracy of milliseconds. It is not about the time zone but the
-        milliseconds in the device&apos;s clock.<br></br>
+        This web project is inspired by the Network Time protocol. It can
+        compare the milliseconds difference between multiple computers&apos;
+        system times (this refers to the time differences due to latencies in
+        time synchronization rather than the time zone).<br></br>
         <br></br> The front end is built with React, and the back end is built
         with Express and Socket.io. Multiple users can connect at the same time
         and compare each of their clocks with other devices.

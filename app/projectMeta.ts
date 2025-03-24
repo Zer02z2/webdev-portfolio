@@ -4,8 +4,8 @@ export interface ProjectMeta {
   title: string
   slug: string
   type: string
-  url: string
-  urlName: string
+  url?: string
+  urlName?: string
   linkType?: "external" | "internal"
   feature: string
   tech: string[]
@@ -22,7 +22,7 @@ export const synapticMeta: ProjectMeta = {
   type: "Branding website",
   url: "https://synapticmed.com/",
   urlName: "synapticmed.com",
-  feature: "Customized CMS and job application system implementation.",
+  feature: "Internship - full-stack web development and web design.",
   tech: ["wordpress", "php", "javascript", "gsap"],
   year: "2024",
   role: "Intern, Design & Development",
@@ -51,7 +51,7 @@ export const aiStorybookMeta: ProjectMeta = {
   type: "AI App",
   url: "https://zer02z2.github.io/shared-minds/week3/",
   urlName: "github.com/Zer02z2/shared-minds",
-  feature: "Take turns with AI to write stories and comics.",
+  feature: "A front-end app to take turns with AI to write stories and comics.",
   tech: ["typescript", "replicate", "vite"],
   year: "2024",
   role: "Design & Development",
@@ -73,16 +73,16 @@ export const skylabMeta: ProjectMeta = {
 }
 
 export const creativeComputingMeta: ProjectMeta = {
-  src: "/projects/creative-computing/infinite-swimming-pool.png",
-  alt: "3D modling scene of a swimming on a dirt hill",
+  src: "/projects/creative-computing/koi-pond.gif",
+  alt: "An animated scenes of kois swimming in a pond",
   title: "Creative Computing Collection",
   slug: "creative-computing",
   type: "Experimental",
   url: "/creative-computing",
   urlName: "Multiples",
   linkType: "internal",
-  feature: "AI, 3D, 2D, interactive sites, and all the fun stuff",
-  tech: ["three-js", "p5js", "javascript", "vite"],
+  feature: "3D, 2D, interactive sites, and all the fun stuff",
+  tech: ["three-js", "p5js", "javascript", "typescript", "vite"],
   year: "2022 - Now",
   role: "Design & Development",
 }
@@ -90,16 +90,32 @@ export const creativeComputingMeta: ProjectMeta = {
 export const timeMachineMeta: ProjectMeta = {
   src: "/projects/time-machine/landing16-9.jpg",
   alt: "Website interface that tells time",
-  title: "Time Machine",
+  title: "Networked Time Comparator",
   slug: "time-machine",
   type: "Multiuser app",
   url: "https://io.zongzechen.com/undnet/timeMachine/",
   urlName: "io.zongzechen.com/undenet/timeMachine",
-  feature: "Multi-devices clock syncing",
+  feature:
+    "A full-stack app that can compare the millionth sync error between multiple computers' time.",
   tech: ["react", "tailwindcss", "nodejs", "expressjs", "socketio"],
   year: "2024",
   role: "Design & Development",
   codeUrl: "https://github.com/Zer02z2/time-machine",
+}
+
+export const coBrowsingMeta: ProjectMeta = {
+  src: "/projects/co-browsing/landing.jpg",
+  alt: "Multi-user video meeting in the browswer",
+  title: "Co-browsing",
+  slug: "co-browsing",
+  type: "Chrome extension",
+  feature:
+    "A Chrome extension that allows multiple people to browse the internet while seeing what each other is looking at concurrently.",
+  tech: ["typescript", "nodejs", "webrtc", "socketio"],
+  year: "2025",
+  role: "Design & Development",
+  codeUrl:
+    "https://github.com/Zer02z2/undo/tree/main/software/chrome-extension-dev/src/screen-share",
 }
 
 export const selectedProjects: ProjectMeta[] = [
@@ -107,6 +123,7 @@ export const selectedProjects: ProjectMeta[] = [
   aiStorybookMeta,
   skylabMeta,
   synapticMeta,
+  coBrowsingMeta,
   creativeComputingMeta,
   webDevMeta,
 ]
